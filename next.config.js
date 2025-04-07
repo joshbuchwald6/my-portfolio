@@ -12,6 +12,9 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  experimental: {
+    esmExternals: false,
+  }
 };
 
 module.exports = nextConfig;
