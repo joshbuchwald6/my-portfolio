@@ -175,7 +175,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-gray-700 text-lg md:text-xl leading-relaxed"
                 >
-                  I&apos;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
+                  I&rsquo;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
                 </motion.p>
               </div>
               <div className="space-y-6">
@@ -402,7 +402,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl font-light mb-8"
             >
-              Let&apos;s Work Together
+              Let&rsquo;s Work Together
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
