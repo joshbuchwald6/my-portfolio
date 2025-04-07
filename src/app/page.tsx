@@ -52,7 +52,7 @@ const projects: Project[] = [
         '2.1M new platform visitors'
       ],
       testimonial: {
-        text: 'Sara&#39;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
+        text: 'Sara&rsquo;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
         author: 'Marketing Director, eBay'
       }
     }
@@ -114,7 +114,7 @@ const projects: Project[] = [
         '92% customer retention rate'
       ],
       testimonial: {
-        text: 'Sara&#39;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
+        text: 'Sara&rsquo;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
         author: 'Founder, CYM Coffee Co.'
       }
     }
@@ -384,7 +384,7 @@ export default function Home() {
                   <blockquote className="border-l-4 pl-6 italic text-gray-700">
                     &ldquo;{selectedProject.fullContent.testimonial.text}&rdquo;
                     <footer className="mt-2 text-sm text-gray-500 font-medium">
-                      — {selectedProject.fullContent.testimonial.author}
+                      &mdash; {selectedProject.fullContent.testimonial.author}
                     </footer>
                   </blockquote>
                 </div>
