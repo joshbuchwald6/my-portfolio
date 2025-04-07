@@ -52,7 +52,7 @@ const projects: Project[] = [
         '2.1M new platform visitors'
       ],
       testimonial: {
-        text: 'Sara&rsquo;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
+        text: 'Sara&apos;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
         author: 'Marketing Director, eBay'
       }
     }
@@ -114,7 +114,7 @@ const projects: Project[] = [
         '92% customer retention rate'
       ],
       testimonial: {
-        text: 'Sara&rsquo;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
+        text: 'Sara&apos;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
         author: 'Founder, CYM Coffee Co.'
       }
     }
