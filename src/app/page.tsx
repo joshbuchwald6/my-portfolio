@@ -66,7 +66,7 @@ const projects: Project[] = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     fullContent: {
-      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon&apos;s latest DSLR series.',
+      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon&rsquo;s latest DSLR series.',
       challenges: [
         'Positioning premium products in competitive market',
         'Communicating technical excellence to diverse audience',
