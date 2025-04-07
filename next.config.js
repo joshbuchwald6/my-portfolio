@@ -13,7 +13,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    esmExternals: false,
+    esmExternals: true,
   }
 };
 
