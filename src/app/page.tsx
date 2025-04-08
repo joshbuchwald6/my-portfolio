@@ -52,7 +52,7 @@ const projects: Project[] = [
         '2.1M new platform visitors'
       ],
       testimonial: {
-        text: 'Sara\'s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
+        text: 'Sara&apos;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
         author: 'Marketing Director, eBay'
       }
     }
@@ -66,7 +66,7 @@ const projects: Project[] = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     fullContent: {
-      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon\'s latest DSLR series.',
+      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon&apos;s latest DSLR series.',
       challenges: [
         'Positioning premium products in competitive market',
         'Communicating technical excellence to diverse audience',
@@ -114,7 +114,7 @@ const projects: Project[] = [
         '92% customer retention rate'
       ],
       testimonial: {
-        text: 'Sara\'s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
+        text: 'Sara&apos;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
         author: 'Founder, CYM Coffee Co.'
       }
     }
@@ -175,7 +175,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-gray-700 text-lg md:text-xl leading-relaxed"
                 >
-                  I\'m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
+                  I&apos;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
                 </motion.p>
               </div>
               <div className="space-y-6">
@@ -382,9 +382,9 @@ export default function Home() {
                   </div>
 
                   <blockquote className="border-l-4 pl-6 italic text-gray-700">
-                    '{selectedProject.fullContent.testimonial.text}'
+                    &quot;{selectedProject.fullContent.testimonial.text}&quot;
                     <footer className="mt-2 text-sm text-gray-500 font-medium">
-                      — {selectedProject.fullContent.testimonial.author}
+                      &mdash; {selectedProject.fullContent.testimonial.author}
                     </footer>
                   </blockquote>
                 </div>
@@ -402,7 +402,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl font-light mb-8"
             >
-              Let\'s Work Together
+              Let&apos;s Work Together
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
