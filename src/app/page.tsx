@@ -175,7 +175,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-gray-700 text-lg md:text-xl leading-relaxed"
                 >
-                  I&apos;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
+                  I&#39;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
                 </motion.p>
               </div>
               <div className="space-y-6">
@@ -382,7 +382,7 @@ export default function Home() {
                   </div>
 
                   <blockquote className="border-l-4 pl-6 italic text-gray-700">
-                    &quot;{selectedProject.fullContent.testimonial.text}&quot;
+                    &#34;{selectedProject.fullContent.testimonial.text}&#34;
                     <footer className="mt-2 text-sm text-gray-500 font-medium">
                       &mdash; {selectedProject.fullContent.testimonial.author}
                     </footer>
@@ -402,7 +402,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl font-light mb-8"
             >
-              Let&apos;s Work Together
+              Let&#39;s Work Together
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
