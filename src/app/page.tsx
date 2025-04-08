@@ -52,7 +52,7 @@ const projects: Project[] = [
         '2.1M new platform visitors'
       ],
       testimonial: {
-        text: 'Sara&apos;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
+        text: "Sara's strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.",
         author: 'Marketing Director, eBay'
       }
     }
@@ -66,7 +66,7 @@ const projects: Project[] = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     fullContent: {
-      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon&apos;s latest DSLR series.',
+      overview: "Developed comprehensive brand strategy and product launch campaign for Nikon's latest DSLR series.",
       challenges: [
         'Positioning premium products in competitive market',
         'Communicating technical excellence to diverse audience',
@@ -83,7 +83,7 @@ const projects: Project[] = [
         '67% increase in professional segment sales'
       ],
       testimonial: {
-        text: 'The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.',
+        text: "The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.",
         author: 'Brand Manager, Nikon'
       }
     }
@@ -114,7 +114,7 @@ const projects: Project[] = [
         '92% customer retention rate'
       ],
       testimonial: {
-        text: 'Sara&apos;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
+        text: "Sara's branding work helped us stand out in a crowded market and connect authentically with our target audience.",
         author: 'Founder, CYM Coffee Co.'
       }
     }
