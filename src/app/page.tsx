@@ -52,8 +52,8 @@ const projects: Project[] = [
         '2.1M new platform visitors'
       ],
       testimonial: {
-        text: 'Sara&#39;s strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.',
-        author: 'Marketing Director, eBay'
+        text: "Sara's strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.",
+        author: "Marketing Director, eBay"
       }
     }
   },
@@ -66,7 +66,7 @@ const projects: Project[] = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     fullContent: {
-      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon&rsquo;s latest DSLR series.',
+      overview: 'Developed comprehensive brand strategy and product launch campaign for Nikon's latest DSLR series.',
       challenges: [
         'Positioning premium products in competitive market',
         'Communicating technical excellence to diverse audience',
@@ -83,8 +83,8 @@ const projects: Project[] = [
         '67% increase in professional segment sales'
       ],
       testimonial: {
-        text: 'The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.',
-        author: 'Brand Manager, Nikon'
+        text: "The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.",
+        author: "Brand Manager, Nikon"
       }
     }
   },
@@ -114,8 +114,8 @@ const projects: Project[] = [
         '92% customer retention rate'
       ],
       testimonial: {
-        text: 'Sara&#39;s branding work helped us stand out in a crowded market and connect authentically with our target audience.',
-        author: 'Founder, CYM Coffee Co.'
+        text: "Sara's branding work helped us stand out in a crowded market and connect authentically with our target audience.",
+        author: "Founder, CYM Coffee Co."
       }
     }
   }
@@ -175,7 +175,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-gray-700 text-lg md:text-xl leading-relaxed"
                 >
-                  I&#39;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
+                  I'm a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
                 </motion.p>
               </div>
               <div className="space-y-6">
@@ -382,9 +382,9 @@ export default function Home() {
                   </div>
 
                   <blockquote className="border-l-4 pl-6 italic text-gray-700">
-                    &#34;{selectedProject.fullContent.testimonial.text}&#34;
+                    "{selectedProject.fullContent.testimonial.text}"
                     <footer className="mt-2 text-sm text-gray-500 font-medium">
-                      &mdash; {selectedProject.fullContent.testimonial.author}
+                      — {selectedProject.fullContent.testimonial.author}
                     </footer>
                   </blockquote>
                 </div>
@@ -402,7 +402,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl font-light mb-8"
             >
-              Let&#39;s Work Together
+              Let's Work Together
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
