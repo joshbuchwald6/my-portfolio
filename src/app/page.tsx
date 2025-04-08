@@ -31,7 +31,7 @@ const projects: Project[] = [
     description: 'Strategic digital marketing campaign showcasing innovative approaches.',
     category: 'Digital Marketing',
     color: '#E53238',
-    logo: '/images/ebay-logo.svg',
+    logo: '/images/ebay.svg',
     bgColor: '#FFFFFF',
     textColor: '#2B2B2B',
     fullContent: {
@@ -62,7 +62,7 @@ const projects: Project[] = [
     description: 'Professional brand presentation highlighting product innovation.',
     category: 'Brand Strategy',
     color: '#FFD700',
-    logo: '/images/nikon-logo.svg',
+    logo: '/images/Nikon_Logo.svg',
     bgColor: '#000000',
     textColor: '#FFFFFF',
     fullContent: {
@@ -93,7 +93,7 @@ const projects: Project[] = [
     description: 'Brand identity and marketing strategy for an artisanal coffee company.',
     category: 'Brand Identity',
     color: '#6F4E37',
-    logo: '/images/cym-logo.svg',
+    logo: '/images/CYM.jpg',
     bgColor: '#F5F0EB',
     textColor: '#2B2B2B',
     fullContent: {
