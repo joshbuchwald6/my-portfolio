@@ -132,7 +132,8 @@ export default function Home() {
             <motion.h1 
               initial={{opacity:0,y:20}} 
               animate={{opacity:1,y:0}} 
-              className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600"
+              transition={{duration:1}} 
+              className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
             >
               Sara Beer
             </motion.h1>
@@ -157,7 +158,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-green-50 to-blue-50">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -165,19 +166,16 @@ export default function Home() {
               viewport={{ once: true }}
               className="grid md:grid-cols-2 gap-16 items-center"
             >
-              <div>
-                {/* Removed paragraph about being a strategic marketing professional */}
-              </div>
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
-                {/* Removed redundant carousel */}
+                <p className="text-lg text-gray-700">Explore my professional certifications and achievements.</p>
               </div>
             </motion.div>
           </div>
         </section>
 
         {/* Certifications Section */}
-        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-blue-50 to-white">
+        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-blue-50 to-green-50">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-3xl font-bold mb-8 text-blue-900">Certifications</h3>
             <div className="flex flex-wrap justify-center gap-8">
