@@ -166,14 +166,7 @@ export default function Home() {
               className="grid md:grid-cols-2 gap-16 items-center"
             >
               <div>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  className="text-gray-700 text-lg md:text-xl leading-relaxed"
-                >
-                  I&apos;m a strategic marketing professional with a passion for creating compelling brand narratives and driving impactful campaigns. With years of experience in digital marketing and brand development, I help businesses connect with their audience through innovative strategies and creative solutions.
-                </motion.p>
+                {/* Removed paragraph about being a strategic marketing professional */}
               </div>
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
