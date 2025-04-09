@@ -175,7 +175,7 @@ export default function Home() {
                     className="flex gap-4"
                     initial={{ x: '100%' }}
                     animate={{ x: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut', repeat: Infinity, repeatType: 'loop' }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
                   >
                     <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/linkedin.svg" alt="LinkedIn" width={40} height={40} />
