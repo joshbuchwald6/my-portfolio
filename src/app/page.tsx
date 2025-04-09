@@ -168,7 +168,6 @@ export default function Home() {
             >
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
-                <p className="text-lg text-gray-700">Explore my professional certifications and achievements.</p>
               </div>
             </motion.div>
           </div>
