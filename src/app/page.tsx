@@ -18,10 +18,6 @@ interface Project {
     challenges: string[];
     solutions: string[];
     results: string[];
-    testimonial: {
-      text: string;
-      author: string;
-    };
     pdf: string;
   };
 }
@@ -52,10 +48,6 @@ const projects: Project[] = [
         '43% improvement in conversion rates',
         '2.1M new platform visitors'
       ],
-      testimonial: {
-        text: "Sara's strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.",
-        author: 'Marketing Director, eBay'
-      },
       pdf: '/pdfs/ebay-case-study.pdf'
     }
   },
@@ -84,10 +76,6 @@ const projects: Project[] = [
         '1.2M social media impressions',
         '67% increase in professional segment sales'
       ],
-      testimonial: {
-        text: "The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.",
-        author: 'Brand Manager, Nikon'
-      },
       pdf: '/pdfs/nikon-case-study.pdf'
     }
   },
@@ -116,10 +104,6 @@ const projects: Project[] = [
         '15K+ social media following',
         '92% customer retention rate'
       ],
-      testimonial: {
-        text: "Sara's branding work helped us stand out in a crowded market and connect authentically with our target audience.",
-        author: 'Founder, CYM Coffee Co.'
-      },
       pdf: '/pdfs/cym-case-study.pdf'
     }
   }
