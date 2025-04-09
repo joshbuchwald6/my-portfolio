@@ -145,13 +145,13 @@ export default function Home() {
               Combined Degree Public Relations Student at the University of Florida
             </motion.p>
           </div>
-          <div className="absolute right-0 top-0 mt-8 mr-8">
+          <div className="absolute right-8 top-8">
             <Image
               src="/images/headshot.png"
               alt="Sara Beer Headshot"
               width={150}
               height={150}
-              className="rounded-full"
+              className="rounded-xl shadow-lg"
             />
           </div>
         </section>
