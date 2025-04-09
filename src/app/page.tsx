@@ -126,25 +126,28 @@ export default function Home() {
       <Header />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
-        <section className="h-screen flex items-center px-8 md:px-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(200,200,255,0.1),transparent)] pointer-events-none" />
-          <div className="max-w-5xl relative z-10">
-            <motion.h1 
-              initial={{opacity:0,y:20}} 
-              animate={{opacity:1,y:0}} 
-              transition={{duration:1}} 
-              className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
-            >
-              Sara Beer
-            </motion.h1>
-            <motion.p 
-              initial={{opacity:0}} 
-              animate={{opacity:1}} 
-              transition={{delay:0.2}} 
-              className="text-xl md:text-2xl text-gray-700 font-light"
-            >
-              Combined Degree Public Relations Student at the University of Florida
-            </motion.p>
+        <section className="h-[80vh] flex items-center px-8 md:px-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-7">
+              <motion.h1 
+                initial={{opacity:0,y:20}} 
+                animate={{opacity:1,y:0}} 
+                transition={{duration:1}} 
+                className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+              >
+                Sara Beer
+              </motion.h1>
+            </div>
+            <div className="col-span-5">
+              <motion.p 
+                initial={{opacity:0}} 
+                animate={{opacity:1}} 
+                transition={{delay:0.2}} 
+                className="text-xl md:text-2xl text-gray-700 font-light"
+              >
+                Combined Degree Public Relations Student at the University of Florida
+              </motion.p>
+            </div>
           </div>
           <div className="absolute right-8 top-8">
             <Image
