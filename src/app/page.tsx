@@ -392,7 +392,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="inline-block bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
                     >
-                      View Case Study PDF
+                      View Presentation
                     </a>
                   </div>
                 </div>
