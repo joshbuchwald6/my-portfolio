@@ -22,6 +22,7 @@ interface Project {
       text: string;
       author: string;
     };
+    pdf: string;
   };
 }
 
@@ -54,7 +55,8 @@ const projects: Project[] = [
       testimonial: {
         text: "Sara's strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.",
         author: 'Marketing Director, eBay'
-      }
+      },
+      pdf: '/public/pdfs/ebay-case-study.pdf'
     }
   },
   {
@@ -85,7 +87,8 @@ const projects: Project[] = [
       testimonial: {
         text: "The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.",
         author: 'Brand Manager, Nikon'
-      }
+      },
+      pdf: '/public/pdfs/nikon-case-study.pdf'
     }
   },
   {
@@ -116,7 +119,8 @@ const projects: Project[] = [
       testimonial: {
         text: "Sara's branding work helped us stand out in a crowded market and connect authentically with our target audience.",
         author: 'Founder, CYM Coffee Co.'
-      }
+      },
+      pdf: '/public/pdfs/cym-case-study.pdf'
     }
   }
 ];
@@ -381,12 +385,16 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <blockquote className="border-l-4 pl-6 italic text-gray-700">
-                    &quot;{selectedProject.fullContent.testimonial.text}&quot;
-                    <footer className="mt-2 text-sm text-gray-500 font-medium">
-                      &mdash; {selectedProject.fullContent.testimonial.author}
-                    </footer>
-                  </blockquote>
+                  <div className="text-center mt-8">
+                    <a
+                      href={selectedProject.fullContent.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
+                    >
+                      View Case Study PDF
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
