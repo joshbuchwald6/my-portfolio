@@ -197,10 +197,6 @@ export default function Home() {
                       <span className="text-lg font-medium text-gray-900">Hootsuite Platform Certification - Hootsuite</span>
                     </div>
                     <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
-                      <Image src="/images/uf.svg" alt="UF" width={40} height={40} />
-                      <span className="text-lg font-medium text-gray-900">"Make It Happen" Award - University of Florida</span>
-                    </div>
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Microsoft PowerPoint 2013 - Microsoft</span>
                     </div>
