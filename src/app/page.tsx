@@ -204,6 +204,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Certifications Section */}
+        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-blue-50 to-white">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-8 text-blue-900">Certifications</h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              <div className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Image src="/images/linkedin.svg" alt="LinkedIn" width={50} height={50} />
+                <div className="text-left">
+                  <span className="text-xl font-semibold text-blue-900">Mobile Marketing Strategy</span>
+                  <p className="text-sm text-gray-600">LinkedIn</p>
+                </div>
+              </div>
+              <div className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Image src="/images/google.svg" alt="Google" width={50} height={50} />
+                <div className="text-left">
+                  <span className="text-xl font-semibold text-blue-900">Google Analytics</span>
+                  <p className="text-sm text-gray-600">Google</p>
+                </div>
+              </div>
+              <div className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Image src="/images/hootsuite.svg" alt="Hootsuite" width={50} height={50} />
+                <div className="text-left">
+                  <span className="text-xl font-semibold text-blue-900">Hootsuite Platform Certification</span>
+                  <p className="text-sm text-gray-600">Hootsuite</p>
+                </div>
+              </div>
+              <div className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Image src="/images/microsoft.svg" alt="Microsoft" width={50} height={50} />
+                <div className="text-left">
+                  <span className="text-xl font-semibold text-blue-900">Microsoft PowerPoint 2013</span>
+                  <p className="text-sm text-gray-600">Microsoft</p>
+                </div>
+              </div>
+              <div className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Image src="/images/microsoft.svg" alt="Microsoft" width={50} height={50} />
+                <div className="text-left">
+                  <span className="text-xl font-semibold text-blue-900">Microsoft Word 2013 Certification</span>
+                  <p className="text-sm text-gray-600">Microsoft</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Projects Section */}
         <section className="py-24 px-8 md:px-24">
           <div className="max-w-7xl mx-auto">
