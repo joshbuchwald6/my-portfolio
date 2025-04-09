@@ -170,30 +170,30 @@ export default function Home() {
               </div>
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
-                <div className="carousel">
+                <div className="carousel overflow-hidden">
                   <motion.div
-                    className="flex gap-4 overflow-x-auto"
+                    className="flex gap-4"
                     initial={{ x: '100%' }}
                     animate={{ x: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
+                    transition={{ duration: 1, ease: 'easeOut', repeat: Infinity, repeatType: 'loop' }}
                   >
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
+                    <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/linkedin.svg" alt="LinkedIn" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Mobile Marketing Strategy - LinkedIn</span>
                     </div>
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
+                    <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/google.svg" alt="Google" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Google Analytics - Google</span>
                     </div>
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
+                    <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/hootsuite.svg" alt="Hootsuite" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Hootsuite Platform Certification - Hootsuite</span>
                     </div>
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
+                    <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Microsoft PowerPoint 2013 - Microsoft</span>
                     </div>
-                    <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
+                    <div className="flex-none w-64 flex items-center gap-4 bg-white p-4 rounded-lg shadow-md">
                       <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
                       <span className="text-lg font-medium text-gray-900">Microsoft Word 2013 Certification - Microsoft</span>
                     </div>
