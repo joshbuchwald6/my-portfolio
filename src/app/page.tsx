@@ -56,7 +56,7 @@ const projects: Project[] = [
         text: "Sara's strategic approach transformed our digital presence, delivering exceptional results that exceeded our expectations.",
         author: 'Marketing Director, eBay'
       },
-      pdf: '/public/pdfs/ebay-case-study.pdf'
+      pdf: '/pdfs/ebay-case-study.pdf'
     }
   },
   {
@@ -88,7 +88,7 @@ const projects: Project[] = [
         text: "The brand strategy perfectly captured our vision while making our technical excellence accessible to all audiences.",
         author: 'Brand Manager, Nikon'
       },
-      pdf: '/public/pdfs/nikon-case-study.pdf'
+      pdf: '/pdfs/nikon-case-study.pdf'
     }
   },
   {
@@ -120,7 +120,7 @@ const projects: Project[] = [
         text: "Sara's branding work helped us stand out in a crowded market and connect authentically with our target audience.",
         author: 'Founder, CYM Coffee Co.'
       },
-      pdf: '/public/pdfs/cym-case-study.pdf'
+      pdf: '/pdfs/cym-case-study.pdf'
     }
   }
 ];
