@@ -124,7 +124,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
         <section className="h-screen flex items-center px-8 md:px-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(200,200,255,0.1),transparent)] pointer-events-none" />
