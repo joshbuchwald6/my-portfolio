@@ -142,8 +142,17 @@ export default function Home() {
               transition={{delay:0.2}} 
               className="text-xl md:text-2xl text-gray-700 font-light"
             >
-              Marketing Strategy & Brand Development
+              Combined Degree Public Relations Student at the University of Florida
             </motion.p>
+          </div>
+          <div className="absolute right-0 top-0 mt-8 mr-8">
+            <Image
+              src="/images/headshot.png"
+              alt="Sara Beer Headshot"
+              width={150}
+              height={150}
+              className="rounded-full"
+            />
           </div>
         </section>
 
