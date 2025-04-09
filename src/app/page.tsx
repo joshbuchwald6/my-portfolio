@@ -176,7 +176,6 @@ export default function Home() {
         {/* Certifications Section */}
         <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-blue-50 to-green-50">
           <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-3xl font-bold mb-8 text-blue-900">Certifications</h3>
             <div className="flex flex-wrap justify-center gap-8">
               <motion.div
                 className="flex-none w-full md:w-1/3 flex items-center gap-4 bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
