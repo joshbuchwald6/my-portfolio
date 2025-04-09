@@ -176,29 +176,33 @@ export default function Home() {
                 </motion.p>
               </div>
               <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-800">{skill.name}</span>
-                      <span className="text-sm text-gray-600">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+                <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/linkedin.svg" alt="LinkedIn" width={40} height={40} />
+                    <span className="text-lg font-medium">Mobile Marketing Strategy - LinkedIn</span>
+                  </li>
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/google.svg" alt="Google" width={40} height={40} />
+                    <span className="text-lg font-medium">Google Analytics - Google</span>
+                  </li>
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/hootsuite.svg" alt="Hootsuite" width={40} height={40} />
+                    <span className="text-lg font-medium">Hootsuite Platform Certification - Hootsuite</span>
+                  </li>
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/uf.svg" alt="UF" width={40} height={40} />
+                    <span className="text-lg font-medium">"Make It Happen" Award - University of Florida</span>
+                  </li>
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
+                    <span className="text-lg font-medium">Microsoft PowerPoint 2013 - Microsoft</span>
+                  </li>
+                  <li className="flex items-center gap-4">
+                    <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
+                    <span className="text-lg font-medium">Microsoft Word 2013 Certification - Microsoft</span>
+                  </li>
+                </ul>
               </div>
             </motion.div>
           </div>
