@@ -178,27 +178,27 @@ export default function Home() {
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
                 <ul className="space-y-4">
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/linkedin.svg" alt="LinkedIn" width={40} height={40} />
                     <span className="text-lg font-medium">Mobile Marketing Strategy - LinkedIn</span>
                   </li>
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/google.svg" alt="Google" width={40} height={40} />
                     <span className="text-lg font-medium">Google Analytics - Google</span>
                   </li>
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/hootsuite.svg" alt="Hootsuite" width={40} height={40} />
                     <span className="text-lg font-medium">Hootsuite Platform Certification - Hootsuite</span>
                   </li>
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/uf.svg" alt="UF" width={40} height={40} />
                     <span className="text-lg font-medium">"Make It Happen" Award - University of Florida</span>
                   </li>
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
                     <span className="text-lg font-medium">Microsoft PowerPoint 2013 - Microsoft</span>
                   </li>
-                  <li className="flex items-center gap-4">
+                  <li className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
                     <Image src="/images/microsoft.svg" alt="Microsoft" width={40} height={40} />
                     <span className="text-lg font-medium">Microsoft Word 2013 Certification - Microsoft</span>
                   </li>
