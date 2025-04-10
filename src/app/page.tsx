@@ -179,7 +179,7 @@ export default function PortfolioPage() {
 
       {/* --- Cursor Light Element (Remove/Comment Out) --- */}
       {/* 
-      <motion.div
+            <motion.div
         className="cursor-light"
         style={{ translateX: cursorX, translateY: cursorY }}
         animate={{ opacity: isLightVisible ? 1 : 0 }}
@@ -229,7 +229,7 @@ export default function PortfolioPage() {
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
             Combined Degree Public Relations Student at the University of Florida
           </p>
-          <motion.div
+                  <motion.div
              variants={fadeInUp}
              className="flex justify-center space-x-4"
            >
@@ -251,7 +251,7 @@ export default function PortfolioPage() {
              >
                View Resume
              </MotionLink>
-          </motion.div>
+                  </motion.div>
         </motion.section>
 
         {/* --- About Section --- */}
@@ -264,15 +264,15 @@ export default function PortfolioPage() {
           className="grid md:grid-cols-5 gap-12 md:gap-16 items-center"
         >
           <div className="md:col-span-2 rounded-lg overflow-hidden shadow-subtle">
-            <Image
+                          <Image
               src="/images/headshot.png" // Use your headshot
               alt="Sara Beer"
               width={500} // Increased width slightly for potentially better rendering
               height={625} // Increased height slightly
               className="w-full h-auto object-cover"
               priority
-            />
-          </div>
+                          />
+                        </div>
           <div className="md:col-span-3 space-y-4">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight">
               Driven by strategy, <br />focused on impact.
@@ -322,7 +322,7 @@ export default function PortfolioPage() {
                     {project.tags.map(tag => (
                       <span key={tag} className="text-xs bg-muted/50 text-muted-foreground px-2 py-0.5 rounded-full">
                         {tag}
-                      </span>
+                </span>
                     ))}
                   </div>
                   <div className="flex space-x-3">
@@ -360,7 +360,7 @@ export default function PortfolioPage() {
                 <Image src={cert.logoUrl} alt={cert.issuer} width={48} height={48} className="mb-3" />
                 <p className="font-medium text-sm text-foreground mb-0.5">{cert.name}</p>
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-              </motion.div>
+            </motion.div>
             ))}
           </div>
         </motion.section>
@@ -390,7 +390,7 @@ export default function PortfolioPage() {
               Email Me
             </MotionLink>
             <MotionLink
-              href="https://linkedin.com/in/sarabeer" // REPLACE LINKEDIN
+              href="https://www.linkedin.com/in/sara-beer/" // Updated LinkedIn URL
               target="_blank"
               rel="noopener noreferrer"
               className="bg-muted/50 text-foreground px-6 py-2.5 rounded-full text-base font-medium transition-colors hover:bg-muted shadow-sm"
