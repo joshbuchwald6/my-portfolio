@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     title: 'Ebay Campaign Strategy',
     description: 'Developed a data-driven digital marketing plan focusing on user engagement.',
     category: 'Digital Marketing',
-    imageUrl: '/images/project-ebay.jpg', // Replace with actual image path
+    imageUrl: '/images/ebay.svg', // Corrected path
     tags: ['Strategy', 'Social Media', 'Analytics', 'Campaign Management'],
     caseStudyUrl: '/pdfs/ebay-case-study.pdf',
   },
@@ -37,7 +37,7 @@ const projectsData: Project[] = [
     title: 'Nikon Brand Presentation',
     description: 'Crafted a compelling narrative and visual presentation for a new product line.',
     category: 'Brand Strategy',
-    imageUrl: '/images/project-nikon.jpg', // Replace with actual image path
+    imageUrl: '/images/Nikon_Logo.svg', // Corrected path
     tags: ['Branding', 'Presentation Design', 'Storytelling'],
     caseStudyUrl: '/pdfs/nikon-case-study.pdf',
   },
@@ -45,7 +45,7 @@ const projectsData: Project[] = [
     title: 'CYM Coffee Co. Identity',
     description: 'Established a unique brand identity and launch marketing materials.',
     category: 'Brand Identity',
-    imageUrl: '/images/project-cym.jpg', // Replace with actual image path
+    imageUrl: '/images/CYM.jpg', // Corrected path
     tags: ['Logo Design', 'Marketing Collateral', 'Launch Strategy'],
     caseStudyUrl: '/pdfs/cym-case-study.pdf',
   },
@@ -247,19 +247,19 @@ export default function PortfolioPage() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid md:grid-cols-3 gap-12 items-center"
+          className="grid md:grid-cols-5 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInUp} className="md:col-span-1 rounded-lg overflow-hidden shadow-subtle">
+          <motion.div variants={fadeInUp} className="md:col-span-2 rounded-lg overflow-hidden shadow-subtle">
             <Image
               src="/images/headshot.png" // Use your headshot
               alt="Sara Beer"
-              width={400}
-              height={500}
+              width={500} // Increased width slightly for potentially better rendering
+              height={625} // Increased height slightly
               className="w-full h-auto object-cover"
-              priority // Load hero image immediately
+              priority
             />
           </motion.div>
-          <motion.div variants={staggerContainer} className="md:col-span-2 space-y-4">
+          <motion.div variants={staggerContainer} className="md:col-span-3 space-y-4">
             <motion.h2 variants={fadeInUp} className="font-heading text-3xl md:text-4xl font-bold tracking-tight">
               Driven by strategy, <br />focused on impact.
             </motion.h2>
@@ -291,13 +291,13 @@ export default function PortfolioPage() {
                 variants={fadeInUp}
                 className="group bg-white rounded-lg overflow-hidden shadow-subtle border border-muted/50 transition-shadow hover:shadow-md"
               >
-                <div className="aspect-video overflow-hidden">
+                <div className="aspect-video overflow-hidden flex items-center justify-center bg-gray-50 p-4">
                   <MotionImage
                     src={project.imageUrl}
                     alt={project.title}
-                    width={600}
-                    height={338}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={400} // Adjust width as needed for logos
+                    height={225} // Adjust height as needed for logos
+                    className="w-auto h-full max-h-[150px] object-contain transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
