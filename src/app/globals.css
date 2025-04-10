@@ -42,7 +42,7 @@
  
 @layer base {
   * {
-    @apply border-border;
+    /* REMOVE: @apply border-border; */
   }
   body {
     /* Apply light theme colors by default */
