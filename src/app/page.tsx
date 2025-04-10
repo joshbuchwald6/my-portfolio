@@ -158,14 +158,80 @@ export default function Home() {
       <Header className="sticky top-0 z-50 bg-white shadow-md" />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
-        <section className="h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
+        <section className="h-screen flex items-center justify-center bg-white relative overflow-hidden">
+          {/* Floating PR-related 3D objects */}
+          <motion.div
+            className="absolute top-20 left-20"
+            animate={{ 
+              y: [0, -15, 0],
+              rotate: [0, 5, 0]
+            }}
+            transition={{ 
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <Image 
+              src="/images/3d-megaphone.svg" 
+              width={100} 
+              height={100} 
+              alt="PR Megaphone" 
+              className="opacity-70"
+            />
+          </motion.div>
+          
+          <motion.div
+            className="absolute bottom-40 right-20"
+            animate={{ 
+              y: [0, 20, 0],
+              rotate: [0, -8, 0]
+            }}
+            transition={{ 
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          >
+            <Image 
+              src="/images/3d-social-media.svg" 
+              width={120} 
+              height={120} 
+              alt="Social Media Icons" 
+              className="opacity-70"
+            />
+          </motion.div>
+          
+          <motion.div
+            className="absolute top-1/3 right-1/4"
+            animate={{ 
+              y: [0, 12, 0],
+              rotate: [0, 3, 0]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
+          >
+            <Image 
+              src="/images/3d-newspaper.svg" 
+              width={80} 
+              height={80} 
+              alt="Newspaper" 
+              className="opacity-70"
+            />
+          </motion.div>
+          
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center relative z-10">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 1 }} 
-                className="text-6xl md:text-7xl font-semibold mb-8 text-white"
+                className="text-6xl md:text-7xl font-semibold mb-8 text-gray-800"
                 style={{ letterSpacing: "-0.02em" }}
               >
                 Sara Beer
@@ -174,7 +240,7 @@ export default function Home() {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.2 }} 
-                className="text-xl md:text-2xl text-white font-light"
+                className="text-xl md:text-2xl text-gray-600 font-light"
               >
                 Combined Degree Public Relations Student at the University of Florida
               </motion.p>
@@ -184,7 +250,7 @@ export default function Home() {
                 transition={{ delay: 0.4 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-8 px-6 py-3 bg-white text-pink-500 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
+                className="mt-8 px-6 py-3 bg-pink-500 text-white rounded-full text-lg font-medium hover:bg-pink-600 transition-colors"
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 Contact Me

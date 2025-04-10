@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Instagram -->
+  <rect x="2" y="2" width="8" height="8" rx="2" fill="#F472B6" opacity="0.7" />
+  <rect x="2" y="2" width="8" height="8" rx="2" stroke="#F472B6" stroke-width="1" />
+  <circle cx="6" cy="6" r="1.5" stroke="#F472B6" stroke-width="1" />
+  <circle cx="9" cy="3" r="0.5" fill="#FFFFFF" />
+  
+  <!-- Twitter/X -->
+  <rect x="14" y="2" width="8" height="8" rx="2" fill="#38BDF8" opacity="0.7" />
+  <rect x="14" y="2" width="8" height="8" rx="2" stroke="#38BDF8" stroke-width="1" />
+  <path d="M16.5 5.5 L19.5 5.5 M18 4 L18 7" stroke="#FFFFFF" stroke-width="1" />
+  <path d="M16 6.5 L20 3.5" stroke="#FFFFFF" stroke-width="1" />
+  
+  <!-- Facebook -->
+  <rect x="2" y="14" width="8" height="8" rx="2" fill="#3B82F6" opacity="0.7" />
+  <rect x="2" y="14" width="8" height="8" rx="2" stroke="#3B82F6" stroke-width="1" />
+  <path d="M7 22 L7 16 M5 18 L9 18" stroke="#FFFFFF" stroke-width="1" />
+  
+  <!-- LinkedIn -->
+  <rect x="14" y="14" width="8" height="8" rx="2" fill="#0284C7" opacity="0.7" />
+  <rect x="14" y="14" width="8" height="8" rx="2" stroke="#0284C7" stroke-width="1" />
+  <path d="M16 18.5 L16 20 M16 17 L16 16.5" stroke="#FFFFFF" stroke-width="1" />
+  <path d="M18 18.5 L18 20 M18 16.5 L20 16.5 L20 20" stroke="#FFFFFF" stroke-width="1" />
+</svg> 
