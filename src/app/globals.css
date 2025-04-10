@@ -69,7 +69,24 @@
 /* .cursor-dot { ... } */
 /* .cursor-dot-interactive { ... } */
 
-/* Cursor Light Effect */
+/* Background Spotlight Effect */
+.bg-spotlight {
+  position: fixed;
+  inset: 0; /* Cover entire viewport */
+  background: radial-gradient(circle at center, hsla(var(--light-accent), 0.12), transparent 70%);
+  z-index: -10; /* Deep background */
+  pointer-events: none; /* Ignore mouse */
+  /* Optional subtle animation */
+  /* animation: pulse 10s infinite alternate ease-in-out; */
+}
+
+/* Optional pulse animation */
+/* @keyframes pulse { 
+     from { opacity: 0.7; transform: scale(1); } 
+     to { opacity: 1; transform: scale(1.05); } 
+   } */
+
+/* Cursor Light Effect (Remove or comment out if replaced by bg-spotlight) */
 .cursor-light {
   position: fixed;
   top: 0;

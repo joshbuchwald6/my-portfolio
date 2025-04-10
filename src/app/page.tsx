@@ -67,8 +67,12 @@ const navItems = [
 
 // --- Animation Variants ---
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 20 }, // Start slightly lower
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" } // Apply transition here
+  },
 };
 
 const staggerContainer = {
@@ -189,44 +193,45 @@ export default function PortfolioPage() {
 
   // --- Page JSX ---
   return (
-    <div className="bg-dot-pattern min-h-screen font-sans antialiased">
-      {/* --- Cursor Light Element --- */}
+    <div className="bg-dot-pattern min-h-screen font-sans antialiased relative">
+      {/* --- Background Spotlight --- */}
+      <div className="bg-spotlight" />
+
+      {/* --- Cursor Light Element (Remove/Comment Out) --- */}
+      {/* 
       <motion.div
         className="cursor-light"
-        // Use direct values for debugging spotlight position issues
         style={{ translateX: cursorX, translateY: cursorY }}
         animate={{ opacity: isLightVisible ? 1 : 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-      />
+      /> 
+      */}
 
       {/* --- Navigation (Restored) --- */}
       <motion.header
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}
-        // Restore animations
         animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
-        <nav className="flex items-center space-x-1 bg-white/80 backdrop-blur-lg text-foreground p-1.5 rounded-full shadow-subtle border border-muted/50">
+        <nav className="flex items-center space-x-1 bg-white/60 backdrop-blur-md text-foreground p-1 rounded-full shadow-subtle border border-muted/30">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.href.substring(1); // Restore active state check
+            const isActive = activeSection === item.href.substring(1);
             return (
               <Link key={item.name} href={item.href} passHref legacyBehavior>
-                {/* Restore motion.a */}
                 <motion.a
-                  className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-sm transition-colors duration-200 ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  {/* Restore active pill */}
                   {isActive && (
                     <motion.div
-                      className="absolute inset-0 bg-muted rounded-full z-0"
-                      layoutId="active-pill"
-                      transition={{ type: 'spring', stiffness: 350, damping: 35 }}
+                      className="absolute inset-0 border-2 border-muted rounded-full z-0"
+                      layoutId="active-nav-indicator"
+                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                     />
                   )}
-                  <Icon className={`relative z-10 h-4 w-4 shrink-0 ${isActive ? 'text-pink-500' : ''}`} />
+                  <Icon className={`relative z-10 h-4 w-4 shrink-0 ${isActive ? 'text-accent' : ''}`} />
                   <span className="relative z-10 whitespace-nowrap">{item.name}</span>
                 </motion.a>
               </Link>
@@ -285,7 +290,7 @@ export default function PortfolioPage() {
           variants={fadeInUp}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid md:grid-cols-5 gap-12 md:gap-16 items-center"
         >
           <motion.div variants={fadeInUp} className="md:col-span-2 rounded-lg overflow-hidden shadow-subtle">
@@ -317,17 +322,16 @@ export default function PortfolioPage() {
           variants={fadeInUp}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           className="space-y-12"
         >
-          <motion.h2 variants={fadeInUp} className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
+          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
             Selected Work
           </motion.h2>
-          <motion.div variants={staggerContainer} className="grid md:grid-cols-2 gap-8 md:gap-12">
+          <motion.div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {projectsData.map((project, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
                 className="group bg-white rounded-lg overflow-hidden shadow-subtle border border-muted/50 transition-shadow hover:shadow-md"
               >
                 <div className="aspect-video overflow-hidden flex items-center justify-center bg-gray-50 p-4">
@@ -367,21 +371,20 @@ export default function PortfolioPage() {
 
         {/* --- Certifications Section --- */}
         <motion.section
-          id="certifications" // Add ID if you want a nav link
+          id="certifications"
           variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.2 }}
           className="space-y-12"
         >
-          <motion.h2 variants={fadeInUp} className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
+          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
             Certifications
           </motion.h2>
-          <motion.div variants={staggerContainer} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {certificationsData.map((cert, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
                 className="flex flex-col items-center text-center p-4 bg-white rounded-lg shadow-subtle border border-muted/50 transition-transform hover:-translate-y-1"
               >
                 <Image src={cert.logoUrl} alt={cert.issuer} width={48} height={48} className="mb-3" />
@@ -401,13 +404,13 @@ export default function PortfolioPage() {
           viewport={{ once: true, amount: 0.3 }}
           className="text-center bg-gradient-to-r from-pink-50 via-purple-50 to-blue-50 py-20 rounded-lg shadow-inner border border-muted/30"
         >
-          <motion.h2 variants={fadeInUp} className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Let's Connect
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
+          <motion.p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
             Interested in collaborating or have a question? Feel free to reach out!
           </motion.p>
-          <motion.div variants={fadeInUp} className="flex justify-center space-x-4">
+          <motion.div className="flex justify-center space-x-4">
             <MotionLink
               href="mailto:sara.beer@example.com" // REPLACE EMAIL
               className="bg-accent text-accent-foreground px-6 py-2.5 rounded-full text-base font-medium transition-colors hover:bg-opacity-90 shadow-sm"
