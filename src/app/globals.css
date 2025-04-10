@@ -53,6 +53,8 @@
 
   /* Add subtle dot pattern background */
   .bg-dot-pattern {
+    position: relative; /* Ensure z-index context */
+    z-index: 0; /* Base layer */
     background-color: hsl(var(--light-background)); /* Ensure base color */
     background-image: radial-gradient(hsl(var(--light-muted)) 1px, transparent 1px);
     background-size: 16px 16px; /* Adjust size of grid */
@@ -76,13 +78,14 @@
   height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 40; /* Increased z-index significantly (below nav/buttons at 50) */
+  /* z-index should be low, behind content but above background */
+  z-index: -1; /* Try negative to be behind standard elements */ 
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsla(var(--light-accent), 0.25) 0%, /* Increased opacity again */
+    hsla(var(--light-accent), 0.25) 0%, /* Keep increased opacity */
     transparent 70%
   );
-  filter: blur(80px); /* Increased blur */
-  opacity: 1; /* TEMP: Force visible for debugging */
-  /* transition: opacity 0.4s ease-in-out; */ /* TEMP: Disable transition */
+  filter: blur(80px); /* Keep increased blur */
+  opacity: 0; /* Revert: Start hidden */
+  transition: opacity 0.4s ease-in-out; /* Revert: Enable transition */
 }

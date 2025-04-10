@@ -96,29 +96,92 @@ export default function PortfolioPage() {
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
+  // Restore full useEffect for cursor light visibility
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
-    // TEMP: Simplify - only track mouse move
+    const body = document.body;
+    const handleMouseEnter = () => { setIsLightVisible(true); };
+    const handleMouseLeave = () => { setIsLightVisible(false); };
+
     window.addEventListener('mousemove', moveCursor);
+    body.addEventListener('mouseenter', handleMouseEnter);
+    body.addEventListener('mouseleave', handleMouseLeave);
+
     return () => {
       window.removeEventListener('mousemove', moveCursor);
+      body.removeEventListener('mouseenter', handleMouseEnter);
+      body.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [cursorX, cursorY]);
 
-  // --- Navigation Logic ---
-  // TEMP: Remove nav show/hide logic and smooth scroll for now
-  /*
+  // --- Navigation Logic (Restored) ---
+  // Show/Hide Nav on Scroll
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    // ... nav hide/show ...
+    const difference = latest - lastY.current;
+    if (latest > 100 && difference > 10) {
+      setIsNavHidden(true);
+    } else if (difference < -10 || latest <= 100) {
+      setIsNavHidden(false);
+    }
+    lastY.current = latest;
   });
+
+  // Smooth scrolling & active section update
   useEffect(() => {
-    // ... smooth scroll click handler ...
-    // ... IntersectionObserver ...
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      if (anchor) {
+        e.preventDefault();
+        const targetId = anchor.getAttribute('href')?.substring(1);
+        const element = document.getElementById(targetId || '');
+        if (element) {
+          const offset = 80; // Adjust offset for fixed nav height + spacing
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          // setActiveSection(targetId || 'home'); // Let observer handle state
+        }
+      }
+    };
+    document.addEventListener('click', handleAnchorClick);
+
+    // Intersection Observer for Active Section Highlighting
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+        rootMargin: '-20% 0px -50% 0px'
+      }
+    );
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.href.substring(1));
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      navItems.forEach((item) => {
+        const element = document.getElementById(item.href.substring(1));
+        if (element) observer.unobserve(element);
+      });
+    };
   }, []);
-  */
 
   // --- Component Variants ---
   const MotionLink = motion(Link);
@@ -127,42 +190,50 @@ export default function PortfolioPage() {
   // --- Page JSX ---
   return (
     <div className="bg-dot-pattern min-h-screen font-sans antialiased">
-      {/* --- Cursor Light Element (Keep) --- */}
+      {/* --- Cursor Light Element --- */}
       <motion.div
         className="cursor-light"
-        style={{ translateX: cursorXSpring, translateY: cursorYSpring }}
-        // TEMP: Remove opacity animation
-        // animate={{ opacity: isLightVisible ? 1 : 0 }}
-        // transition={{ duration: 0.4, ease: "easeOut" }}
+        // Use direct values for debugging spotlight position issues
+        style={{ translateX: cursorX, translateY: cursorY }}
+        animate={{ opacity: isLightVisible ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       />
 
-      {/* --- Navigation --- */}
-      {/* TEMP: Remove motion wrapper for nav for debugging */}
-      <header
+      {/* --- Navigation (Restored) --- */}
+      <motion.header
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}
-        // TEMP: Remove animation props
-        // animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
-        // transition={{ duration: 0.3, ease: 'easeInOut' }}
+        // Restore animations
+        animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <nav className="flex items-center space-x-1 bg-white/80 backdrop-blur-lg text-foreground p-1.5 rounded-full shadow-subtle border border-muted/50">
           {navItems.map((item) => {
             const Icon = item.icon;
-            // TEMP: Remove active state logic
-            // const isActive = activeSection === item.href.substring(1);
+            const isActive = activeSection === item.href.substring(1); // Restore active state check
             return (
               <Link key={item.name} href={item.href} passHref legacyBehavior>
-                <a // TEMP: Use regular <a> for simplicity
-                  className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 text-muted-foreground hover:text-foreground`}
+                {/* Restore motion.a */}
+                <motion.a
+                  className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {/* TEMP: Remove active pill */}
-                  <Icon className={`relative z-10 h-4 w-4 shrink-0`} />
+                  {/* Restore active pill */}
+                  {isActive && (
+                    <motion.div
+                      className="absolute inset-0 bg-muted rounded-full z-0"
+                      layoutId="active-pill"
+                      transition={{ type: 'spring', stiffness: 350, damping: 35 }}
+                    />
+                  )}
+                  <Icon className={`relative z-10 h-4 w-4 shrink-0 ${isActive ? 'text-pink-500' : ''}`} />
                   <span className="relative z-10 whitespace-nowrap">{item.name}</span>
-                </a>
+                </motion.a>
               </Link>
             );
           })}
         </nav>
-      </header>
+      </motion.header>
 
       {/* --- Main Content --- */}
       <motion.main
