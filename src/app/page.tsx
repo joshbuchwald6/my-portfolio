@@ -158,7 +158,7 @@ export default function Home() {
       <Header className="sticky top-0 z-50 bg-white shadow-md" />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
-        <section className="h-screen flex items-center justify-center bg-white relative overflow-hidden">
+        <section id="home" className="h-screen flex items-center justify-center bg-white relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center relative z-10">
               <motion.h1 
@@ -194,7 +194,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-green-50 to-blue-50">
+        <section id="about" className="py-24 px-8 md:px-24 bg-gradient-to-br from-green-50 to-blue-50">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -294,7 +294,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section className="py-24 px-8 md:px-24">
+        <section id="projects" className="py-24 px-8 md:px-24">
           <div className="max-w-7xl mx-auto">
             <div className="grid gap-32">
               {projects.map((project, index) => (
@@ -484,7 +484,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Contact Section */}
-        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <section id="contact" className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
