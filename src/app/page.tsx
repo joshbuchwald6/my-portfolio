@@ -145,43 +145,40 @@ export default function Home() {
       <Header className="sticky top-0 z-50 bg-white shadow-md" />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
-        <section className="h-[80vh] flex items-center px-8 md:px-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-7">
-              <motion.h1 
-                initial={{opacity:0,y:20}} 
-                animate={{opacity:1,y:0}} 
-                transition={{duration:1}} 
-                className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
-              >
-                Sara Beer
-              </motion.h1>
-            </div>
-            <div className="col-span-5">
-              <motion.p 
-                initial={{opacity:0}} 
-                animate={{opacity:1}} 
-                transition={{delay:0.2}} 
-                className="text-xl md:text-2xl text-gray-700 font-light"
-              >
-                Combined Degree Public Relations Student at the University of Florida
-              </motion.p>
-            </div>
-          </div>
-          <div className="absolute right-8 top-8">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="rounded-xl shadow-lg"
+        <section className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+          <div className="text-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 1 }} 
+              className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
             >
-              <Image
-                src="/images/headshot.png"
-                alt="Sara Beer Headshot"
-                width={150}
-                height={150}
-                className="rounded-xl"
-              />
-            </motion.div>
+              Sara Beer
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.2 }} 
+              className="text-xl md:text-2xl text-gray-700 font-light"
+            >
+              Combined Degree Public Relations Student at the University of Florida
+            </motion.p>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
+            >
+              Contact Me
+            </motion.button>
           </div>
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 5, repeat: Infinity }}
+          >
+            {/* Add floating SVG shapes or icons here */}
+          </motion.div>
         </section>
 
         {/* About Section */}
@@ -194,8 +191,23 @@ export default function Home() {
               className="grid md:grid-cols-2 gap-16 items-center"
             >
               <div className="space-y-6">
-                <h3 className="text-2xl font-light mb-4 text-gray-900">Certifications</h3>
+                <h3 className="text-2xl font-light mb-4 text-gray-900">About Me</h3>
+                <p className="text-lg text-gray-700">
+                  I am a <span className="font-semibold text-blue-500">Public Relations</span> student with a passion for <span className="font-semibold text-blue-500">creative storytelling</span> and <span className="font-semibold text-blue-500">strategic communication</span>.
+                </p>
               </div>
+              <motion.div
+                className="rounded-xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  src="/images/about-photo.jpg"
+                  alt="About Me Photo"
+                  width={400}
+                  height={400}
+                  className="object-cover"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -453,6 +465,32 @@ export default function Home() {
           )}
         </AnimatePresence>
 
+        {/* Testimonials Section */}
+        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-100 to-gray-200">
+          <div className="max-w-5xl mx-auto text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-light mb-8"
+            >
+              Testimonials
+            </motion.h2>
+            <motion.div
+              className="overflow-hidden"
+              animate={{ x: [0, -100, 0] }}
+              transition={{ duration: 10, repeat: Infinity }}
+            >
+              <p className="text-lg text-gray-700">
+                "Sara's creativity and strategic thinking have been instrumental in our campaign success."
+              </p>
+              <p className="text-lg text-gray-700">
+                "Her ability to communicate complex ideas simply is unmatched."
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
           <div className="max-w-3xl mx-auto text-center">
@@ -483,7 +521,60 @@ export default function Home() {
             </motion.a>
           </div>
         </section>
+
+        {/* Resume Section */}
+        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-200 to-gray-300">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-light mb-8"
+            >
+              Resume
+            </motion.h2>
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="inline-block bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download Resume
+            </motion.a>
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className="py-12 px-8 md:px-24 bg-gray-800 text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center gap-8 mb-8"
+          >
+            <motion.a href="#" className="hover:text-blue-500" whileHover={{ scale: 1.1 }}>
+              <i className="fab fa-linkedin fa-2x"></i>
+            </motion.a>
+            <motion.a href="#" className="hover:text-blue-500" whileHover={{ scale: 1.1 }}>
+              <i className="fab fa-twitter fa-2x"></i>
+            </motion.a>
+            <motion.a href="#" className="hover:text-blue-500" whileHover={{ scale: 1.1 }}>
+              <i className="fas fa-envelope fa-2x"></i>
+            </motion.a>
+          </motion.div>
+          <p className="text-lg mb-4">Let's connect and create something amazing together!</p>
+          <motion.button
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            Scroll to Top
+          </motion.button>
+        </div>
+      </footer>
     </>
   );
 }
