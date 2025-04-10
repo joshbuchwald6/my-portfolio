@@ -201,7 +201,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Image
-                  src="/images/about-photo.jpg"
+                  src="/images/headshot.png"
                   alt="About Me Photo"
                   width={400}
                   height={400}
@@ -464,32 +464,6 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Testimonials Section */}
-        <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-100 to-gray-200">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl font-light mb-8"
-            >
-              Testimonials
-            </motion.h2>
-            <motion.div
-              className="overflow-hidden"
-              animate={{ x: [0, -100, 0] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            >
-              <p className="text-lg text-gray-700">
-                "Sara's creativity and strategic thinking have been instrumental in our campaign success."
-              </p>
-              <p className="text-lg text-gray-700">
-                "Her ability to communicate complex ideas simply is unmatched."
-              </p>
-            </motion.div>
-          </div>
-        </section>
 
         {/* Contact Section */}
         <section className="py-24 px-8 md:px-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
