@@ -242,7 +242,7 @@ export default function PortfolioPage() {
                Get In Touch
              </MotionLink>
              <MotionLink
-               href="/sararesume.pdf" // Ensure the resume path is correct
+               href="/pdfs/sararesume.pdf" // Corrected resume path
                target="_blank"
                rel="noopener noreferrer"
                className="bg-muted/50 text-foreground px-6 py-2.5 rounded-full text-base font-medium transition-colors hover:bg-muted shadow-sm"
