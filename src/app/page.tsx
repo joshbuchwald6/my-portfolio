@@ -90,6 +90,7 @@ export default function PortfolioPage() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
+  const [isLightVisible, setIsLightVisible] = useState(false);
 
   // Adjusted spring settings for smoother follow
   const springConfig = { damping: 30, stiffness: 200 };
@@ -110,10 +111,9 @@ export default function PortfolioPage() {
       }
     };
 
-    // Need to add mouseenter/mouseleave for the light effect fade
     const body = document.body;
-    const handleMouseEnter = () => { body.classList.add('cursor-hovering'); };
-    const handleMouseLeave = () => { body.classList.remove('cursor-hovering'); };
+    const handleMouseEnter = () => { setIsLightVisible(true); };
+    const handleMouseLeave = () => { setIsLightVisible(false); };
 
     window.addEventListener('mousemove', moveCursor);
     document.addEventListener('mouseover', handleMouseOver);
@@ -218,6 +218,8 @@ export default function PortfolioPage() {
           translateX: cursorXSpring,
           translateY: cursorYSpring,
         }}
+        animate={{ opacity: isLightVisible ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       />
 
       {/* --- Navigation --- */}

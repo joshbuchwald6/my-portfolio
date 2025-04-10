@@ -94,21 +94,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 500px; /* Slightly larger */
-  height: 500px; /* Slightly larger */
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 1; /* Increased z-index slightly */
+  z-index: 0; /* Behind content, above absolute background pattern if any */
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsla(var(--light-accent), 0.1) 0%, /* Increased opacity slightly */
-    transparent 70% /* Fade out later */
+    hsla(var(--light-accent), 0.15) 0%, /* Increased opacity slightly more */
+    transparent 70%
   );
-  filter: blur(50px); /* Increased blur slightly */
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out; /* Slightly slower fade */
-}
-
-.custom-cursor-area:hover .cursor-light {
-  opacity: 1; /* Fade in on hover */
+  filter: blur(60px); /* Slightly more blur */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.4s ease-in-out;
 }
