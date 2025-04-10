@@ -140,13 +140,34 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector('.header');
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Header className="sticky top-0 z-50 bg-white shadow-md" />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
-        <section className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-          <div className="parallax-bg absolute top-0 left-0 w-full h-full bg-fixed bg-cover" style={{ backgroundImage: 'url(/path/to/your/image.jpg)' }}></div>
+        <section className="h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full"
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 10, repeat: Infinity }}
+          >
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <path fill="#0099ff" fillOpacity="0.3" d="M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,144C672,149,768,203,864,197.3C960,192,1056,128,1152,122.7C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+          </motion.div>
           <div className="text-center relative z-10">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }} 
@@ -168,6 +189,8 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
             >
               Contact Me
@@ -186,9 +209,15 @@ export default function Home() {
             >
               <div className="space-y-6">
                 <h3 className="text-2xl font-light mb-4 text-gray-900">About Me</h3>
-                <p className="text-lg text-gray-700">
+                <motion.p
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-lg text-gray-700"
+                >
                   I am a <span className="font-semibold text-blue-500">Public Relations</span> student with a passion for <span className="font-semibold text-blue-500">creative storytelling</span> and <span className="font-semibold text-blue-500">strategic communication</span>.
-                </p>
+                </motion.p>
               </div>
               <motion.div
                 className="rounded-xl overflow-hidden shadow-lg"
