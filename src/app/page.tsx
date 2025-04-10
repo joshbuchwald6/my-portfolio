@@ -160,22 +160,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className="h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="absolute top-0 left-0 w-full h-full"
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            >
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#0099ff" fillOpacity="0.3" d="M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,144C672,149,768,203,864,197.3C960,192,1056,128,1152,122.7C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-              </svg>
-            </motion.div>
             <div className="text-center relative z-10">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 1 }} 
-                className="text-6xl md:text-7xl font-light mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
-                style={{ color: '#FFFFFF', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+                className="text-6xl md:text-7xl font-semibold mb-8 text-white"
+                style={{ letterSpacing: "-0.02em" }}
               >
                 Sara Beer
               </motion.h1>
@@ -183,7 +174,7 @@ export default function Home() {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.2 }} 
-                className="text-xl md:text-2xl text-gray-700 font-light"
+                className="text-xl md:text-2xl text-white font-light"
               >
                 Combined Degree Public Relations Student at the University of Florida
               </motion.p>
@@ -193,7 +184,7 @@ export default function Home() {
                 transition={{ delay: 0.4 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-8 px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-medium hover:bg-blue-600 transition-colors"
+                className="mt-8 px-6 py-3 bg-white text-pink-500 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 Contact Me
