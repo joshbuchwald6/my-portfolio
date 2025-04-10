@@ -85,10 +85,7 @@ const staggerContainer = {
 
 // --- Main Page Component ---
 export default function PortfolioPage() {
-  const [activeSection, setActiveSection] = useState('home');
-  const [isNavHidden, setIsNavHidden] = useState(false);
   const { scrollY } = useScroll();
-  const lastY = useRef(0);
 
   // --- Cursor Light State & Logic ---
   const cursorX = useMotionValue(-100);
@@ -121,19 +118,7 @@ export default function PortfolioPage() {
     };
   }, [cursorX, cursorY]);
 
-  // --- Navigation Logic (Restored) ---
-  // Show/Hide Nav on Scroll
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    const difference = latest - lastY.current;
-    if (latest > 100 && difference > 10) {
-      setIsNavHidden(true);
-    } else if (difference < -10 || latest <= 100) {
-      setIsNavHidden(false);
-    }
-    lastY.current = latest;
-  });
-
-  // Smooth scrolling & active section update
+  // --- Navigation Logic ---
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -143,43 +128,15 @@ export default function PortfolioPage() {
         const targetId = anchor.getAttribute('href')?.substring(1);
         const element = document.getElementById(targetId || '');
         if (element) {
-          // Restore original offset logic
-          const offset = 80; // Adjust as needed for nav height
-          const bodyRect = document.body.getBoundingClientRect().top;
-          const elementRect = element.getBoundingClientRect().top;
-          const elementPosition = elementRect - bodyRect;
-          const offsetPosition = elementPosition - offset;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          // Use simple scrollIntoView for non-sticky header
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
     };
     document.addEventListener('click', handleAnchorClick);
 
-    // Intersection Observer for Active Section Highlighting
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.4,
-        rootMargin: '-20% 0px -50% 0px'
-      }
-    );
-    navItems.forEach((item) => {
-      const element = document.getElementById(item.href.substring(1));
-      if (element) observer.observe(element);
-    });
-
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      navItems.forEach((item) => {
-        const element = document.getElementById(item.href.substring(1));
-        if (element) observer.unobserve(element);
-      });
     };
   }, []);
 
@@ -203,36 +160,24 @@ export default function PortfolioPage() {
       /> 
       */}
 
-      {/* --- Navigation (Restored) --- */}
+      {/* --- Navigation (Non-Sticky) --- */}
       <motion.header
-        className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}
-        // Restore scroll animation
-        animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        // Keep initial entry animation
+        className={`relative pt-6 pb-6 flex justify-center z-40`}
         initial={{ y: -100, opacity: 0 }}
-        // animate={{ y: 0, opacity: 1 }} // This animate is now handled by the scroll logic one
-        // transition={{ duration: 0.5, ease: "easeOut" }} 
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <nav className="flex items-center space-x-1 bg-white/60 backdrop-blur-md text-foreground p-1 rounded-full shadow-subtle border border-muted/30">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.href.substring(1);
             return (
               <Link key={item.name} href={item.href} passHref legacyBehavior>
                 <motion.a
-                  className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-sm transition-colors duration-200 ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-sm transition-colors duration-200 text-muted-foreground hover:text-foreground`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  {isActive && (
-                    <motion.div
-                      className="absolute inset-0 border-2 border-muted rounded-full z-0"
-                      layoutId="active-nav-indicator"
-                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                    />
-                  )}
-                  <Icon className={`relative z-10 h-4 w-4 shrink-0 ${isActive ? 'text-accent' : ''}`} />
+                  <Icon className={`relative z-10 h-4 w-4 shrink-0`} />
                   <span className="relative z-10 whitespace-nowrap">{item.name}</span>
                 </motion.a>
               </Link>
@@ -242,12 +187,7 @@ export default function PortfolioPage() {
       </motion.header>
 
       {/* --- Main Content --- */}
-      <motion.main
-        initial="initial"
-        animate="animate"
-        variants={staggerContainer}
-        className="max-w-4xl mx-auto px-6 pt-40 pb-24 space-y-32 md:space-y-48"
-      >
+      <main className="max-w-4xl mx-auto px-6 pb-24 space-y-32 md:space-y-48">
         {/* --- Hero Section --- */}
         <motion.section
           id="home"
@@ -435,7 +375,7 @@ export default function PortfolioPage() {
           </div>
         </motion.section>
 
-      </motion.main>
+      </main>
 
       {/* --- Footer --- */}
       <footer className="max-w-4xl mx-auto px-6 py-12 text-center border-t border-muted/50">
