@@ -128,8 +128,13 @@ export default function PortfolioPage() {
         const targetId = anchor.getAttribute('href')?.substring(1);
         const element = document.getElementById(targetId || '');
         if (element) {
-          // Use simple scrollIntoView for non-sticky header
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Calculate position relative to document top
+          const elementTop = element.offsetTop;
+          // Use window.scrollTo for potentially smoother control
+          window.scrollTo({
+            top: elementTop,
+            behavior: 'smooth'
+          });
         }
       }
     };
