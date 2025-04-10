@@ -227,7 +227,7 @@ export default function PortfolioPage() {
             Sara Beer
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
-            Combined Degree Public Relations Student at the University of Florida specializing in strategic communication and brand development.
+            Combined Degree Public Relations Student at the University of Florida
           </p>
           <motion.div
              variants={fadeInUp}
@@ -242,7 +242,7 @@ export default function PortfolioPage() {
                Get In Touch
              </MotionLink>
              <MotionLink
-               href="/sararesume.pdf" // Updated resume path
+               href="/sararesume.pdf" // Ensure the resume path is correct
                target="_blank"
                rel="noopener noreferrer"
                className="bg-muted/50 text-foreground px-6 py-2.5 rounded-full text-base font-medium transition-colors hover:bg-muted shadow-sm"
