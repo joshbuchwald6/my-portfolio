@@ -72,12 +72,10 @@
 /* Background Spotlight Effect */
 .bg-spotlight {
   position: fixed;
-  inset: 0; /* Cover entire viewport */
-  background: radial-gradient(circle at center, hsla(var(--light-accent), 0.12), transparent 70%);
-  z-index: -10; /* Deep background */
-  pointer-events: none; /* Ignore mouse */
-  /* Optional subtle animation */
-  /* animation: pulse 10s infinite alternate ease-in-out; */
+  inset: 0;
+  background: radial-gradient(circle at center, hsla(var(--light-accent), 0.4), transparent 60%); /* DEBUG: Increased opacity significantly */
+  z-index: -10;
+  pointer-events: none;
 }
 
 /* Optional pulse animation */

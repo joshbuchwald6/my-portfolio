@@ -143,17 +143,16 @@ export default function PortfolioPage() {
         const targetId = anchor.getAttribute('href')?.substring(1);
         const element = document.getElementById(targetId || '');
         if (element) {
-          const offset = 80; // Adjust offset for fixed nav height + spacing
+          // TEMP: Simplify scroll logic for debugging
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          /* // Original offset logic
+          const offset = 80;
           const bodyRect = document.body.getBoundingClientRect().top;
           const elementRect = element.getBoundingClientRect().top;
           const elementPosition = elementRect - bodyRect;
           const offsetPosition = elementPosition - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-          // setActiveSection(targetId || 'home'); // Let observer handle state
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          */
         }
       }
     };
@@ -193,7 +192,7 @@ export default function PortfolioPage() {
 
   // --- Page JSX ---
   return (
-    <div className="bg-dot-pattern min-h-screen font-sans antialiased relative">
+    <div className="bg-dot-pattern min-h-screen font-sans antialiased">
       {/* --- Background Spotlight --- */}
       <div className="bg-spotlight" />
 
