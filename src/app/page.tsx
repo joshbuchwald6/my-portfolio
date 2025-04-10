@@ -1,9 +1,10 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Header } from '@/components/layout/Header';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Home, User, Briefcase, Mail } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -118,7 +119,14 @@ const skills = [
   { name: 'Analytics', level: 85 }
 ];
 
-export default function Home() {
+const navItems = [
+  { name: 'Home', href: '#home', icon: Home },
+  { name: 'About', href: '#about', icon: User },
+  { name: 'Work', href: '#projects', icon: Briefcase },
+  { name: 'Contact', href: '#contact', icon: Mail },
+];
+
+export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
@@ -155,7 +163,30 @@ export default function Home() {
 
   return (
     <>
-      <Header className="sticky top-0 z-50 bg-white shadow-md" />
+      <motion.header
+        className={`relative pt-5 mb-5 flex justify-center z-50`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <nav className="flex items-center space-x-1 bg-zinc-900/70 backdrop-blur-lg text-white p-1.5 rounded-full shadow-lg border border-white/10">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.name} href={item.href} passHref legacyBehavior>
+                <motion.a
+                  className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 text-gray-400 hover:text-white`}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Icon className={`relative z-10 h-4 w-4 shrink-0`} />
+                  <span className="relative z-10 whitespace-nowrap">{item.name}</span>
+                </motion.a>
+              </Link>
+            );
+          })}
+        </nav>
+      </motion.header>
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
         <section id="home" className="h-screen flex items-center justify-center bg-white relative overflow-hidden">
