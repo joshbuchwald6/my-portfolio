@@ -67,47 +67,46 @@
   }
 }
 
-/* Custom Cursor Dot Style (can be placed here or in component) */
+/* Custom Cursor Dot Style */
 .cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 12px; /* Increased size */
+  height: 12px; /* Increased size */
   background-color: hsl(var(--light-accent)); /* Pink dot */
   border-radius: 50%;
   pointer-events: none; /* Ignore mouse events */
   z-index: 9999; /* Ensure it's on top */
-  mix-blend-mode: exclusion; /* Optional: cool blend effect */
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease; /* Smooth size transition on hover */
+  transition: width 0.2s ease, height 0.2s ease; 
 }
 
-/* Style for when hovering over interactive elements (optional) */
+/* Style for when hovering over interactive elements */
 .cursor-dot-interactive {
-  width: 24px;
-  height: 24px;
-  background-color: hsla(var(--light-accent), 0.5);
+  width: 30px; /* Increased size */
+  height: 30px; /* Increased size */
+  background-color: hsla(var(--light-accent), 0.4); /* Slightly less transparent */
 }
 
-/* Cursor Light Effect (can be placed here or in component) */
+/* Cursor Light Effect */
 .cursor-light {
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px; /* Adjust size of light effect */
-  height: 400px;
+  width: 500px; /* Slightly larger */
+  height: 500px; /* Slightly larger */
   border-radius: 50%;
   pointer-events: none;
-  z-index: 0; /* Behind content but above background pattern */
+  z-index: 1; /* Increased z-index slightly */
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsla(var(--light-accent), 0.08) 0%, /* Pink hue, low opacity */
-    transparent 60% /* Fade out */
+    hsla(var(--light-accent), 0.1) 0%, /* Increased opacity slightly */
+    transparent 70% /* Fade out later */
   );
-  filter: blur(30px); /* Soften the effect */
+  filter: blur(50px); /* Increased blur slightly */
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out; /* Slightly slower fade */
 }
 
 .custom-cursor-area:hover .cursor-light {

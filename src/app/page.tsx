@@ -87,11 +87,12 @@ export default function PortfolioPage() {
   const lastY = useRef(0);
 
   // --- Custom Cursor State & Logic ---
-  const cursorX = useMotionValue(-100); // Start off-screen
+  const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
 
-  const springConfig = { damping: 25, stiffness: 700 };
+  // Adjusted spring settings for smoother follow
+  const springConfig = { damping: 30, stiffness: 200 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -109,12 +110,21 @@ export default function PortfolioPage() {
       }
     };
 
+    // Need to add mouseenter/mouseleave for the light effect fade
+    const body = document.body;
+    const handleMouseEnter = () => { body.classList.add('cursor-hovering'); };
+    const handleMouseLeave = () => { body.classList.remove('cursor-hovering'); };
+
     window.addEventListener('mousemove', moveCursor);
     document.addEventListener('mouseover', handleMouseOver);
+    body.addEventListener('mouseenter', handleMouseEnter);
+    body.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseover', handleMouseOver);
+      body.removeEventListener('mouseenter', handleMouseEnter);
+      body.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [cursorX, cursorY]);
 
