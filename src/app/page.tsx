@@ -142,7 +142,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header className="sticky top-0 z-50 bg-white shadow-md" />
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
         <section className="h-[80vh] flex items-center px-8 md:px-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
@@ -169,13 +169,18 @@ export default function Home() {
             </div>
           </div>
           <div className="absolute right-8 top-8">
-            <Image
-              src="/images/headshot.png"
-              alt="Sara Beer Headshot"
-              width={150}
-              height={150}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               className="rounded-xl shadow-lg"
-            />
+            >
+              <Image
+                src="/images/headshot.png"
+                alt="Sara Beer Headshot"
+                width={150}
+                height={150}
+                className="rounded-xl"
+              />
+            </motion.div>
           </div>
         </section>
 

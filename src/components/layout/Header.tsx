@@ -3,7 +3,11 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-export function Header() {
+interface HeaderProps {
+  className?: string;
+}
+
+export function Header({ className = '' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,7 +22,7 @@ export function Header() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 py-4 px-8 md:px-24 transition-colors duration-300 ${
         isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}
+      } ${className}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
