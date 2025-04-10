@@ -76,13 +76,13 @@
   height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 10; /* Increased z-index to be above background but below nav/content */
+  z-index: 40; /* Increased z-index significantly (below nav/buttons at 50) */
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsla(var(--light-accent), 0.20) 0%, /* Slightly increased opacity */
+    hsla(var(--light-accent), 0.25) 0%, /* Increased opacity again */
     transparent 70%
   );
-  filter: blur(70px); /* More blur for softer spotlight */
+  filter: blur(80px); /* Increased blur */
   opacity: 0; /* Start hidden */
   transition: opacity 0.4s ease-in-out;
 }
