@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useMotionValueEvent, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, useMotionValue, useSpring, animate } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home, User, Briefcase, Mail, ArrowUp, Github, Linkedin, FileText } from 'lucide-react';
@@ -83,6 +83,27 @@ const staggerContainer = {
   },
 };
 
+// --- Custom Smooth Scroll Function ---
+function smoothScrollTo(targetId: string) {
+  const element = document.getElementById(targetId);
+  if (!element) return;
+
+  const elementTop = element.offsetTop;
+  const currentScroll = window.scrollY;
+
+  // Use Framer Motion's animate function for smooth scrolling
+  animate(currentScroll, elementTop, {
+    type: "spring", // Or "tween"
+    stiffness: 100,
+    damping: 30,
+    // duration: 0.8, // Use duration for tween
+    // ease: "easeInOut", // Use ease for tween
+    onUpdate: (latest) => {
+      window.scrollTo(0, latest);
+    }
+  });
+}
+
 // --- Main Page Component ---
 export default function PortfolioPage() {
   const { scrollY } = useScroll();
@@ -126,15 +147,9 @@ export default function PortfolioPage() {
       if (anchor) {
         e.preventDefault();
         const targetId = anchor.getAttribute('href')?.substring(1);
-        const element = document.getElementById(targetId || '');
-        if (element) {
-          // Calculate position relative to document top
-          const elementTop = element.offsetTop;
-          // Use window.scrollTo for potentially smoother control
-          window.scrollTo({
-            top: elementTop,
-            behavior: 'smooth'
-          });
+        if (targetId) {
+          // Call the custom smooth scroll function
+          smoothScrollTo(targetId);
         }
       }
     };
