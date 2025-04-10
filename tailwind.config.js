@@ -34,7 +34,6 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        heading: ['var(--font-satoshi)', ...fontFamily.sans],
       },
       boxShadow: {
         subtle: '0 4px 15px rgba(0, 0, 0, 0.05)',
