@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, useMotionValue, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home, User, Briefcase, Mail, ArrowUp, Github, Linkedin, FileText } from 'lucide-react';
@@ -86,6 +86,38 @@ export default function PortfolioPage() {
   const { scrollY } = useScroll();
   const lastY = useRef(0);
 
+  // --- Custom Cursor State & Logic ---
+  const cursorX = useMotionValue(-100); // Start off-screen
+  const cursorY = useMotionValue(-100);
+  const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
+
+  const springConfig = { damping: 25, stiffness: 700 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+    };
+
+    const handleMouseOver = (e: MouseEvent) => {
+      if ((e.target as Element).closest('a, button')) {
+        setIsHoveringInteractive(true);
+      } else {
+        setIsHoveringInteractive(false);
+      }
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseover', handleMouseOver);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseover', handleMouseOver);
+    };
+  }, [cursorX, cursorY]);
+
   // --- Navigation Logic ---
   // Show/Hide Nav on Scroll
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -161,7 +193,23 @@ export default function PortfolioPage() {
 
   // --- Page JSX ---
   return (
-    <div className="bg-background min-h-screen font-sans antialiased">
+    <div className="bg-dot-pattern custom-cursor-area min-h-screen font-sans antialiased">
+      {/* --- Custom Cursor Elements --- */}
+      <motion.div
+        className={`cursor-dot ${isHoveringInteractive ? 'cursor-dot-interactive' : ''}`}
+        style={{
+          translateX: cursorXSpring,
+          translateY: cursorYSpring,
+        }}
+      />
+      <motion.div
+        className="cursor-light"
+        style={{
+          translateX: cursorXSpring,
+          translateY: cursorYSpring,
+        }}
+      />
+
       {/* --- Navigation --- */}
       <motion.header
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}

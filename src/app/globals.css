@@ -2,27 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 240 10% 3.9%; /* Example dark */
+    --foreground: 0 0% 98%; /* Example dark */
+
+    /* Your Light Theme Colors (defined in tailwind.config.js) */
+    --light-background: 0 0% 98%; /* #F9F9F9 */
+    --light-foreground: 240 10% 3.9%; /* #111111 */
+    --light-muted: 0 0% 89.8%; /* #E5E5E5 */
+    --light-muted-foreground: 240 4% 46.1%; /* #666666 */
+    --light-accent: 330 83.3% 60.8%; /* #EC4899 */
+    --light-accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    /* --muted: 240 4.8% 95.9%; /* Replaced by light-muted */
+    /* --muted-foreground: 240 3.8% 46.1%; /* Replaced by light-muted-foreground */
+    /* --accent: 240 5.9% 10%; /* Replaced by light-accent */
+    /* --accent-foreground: 0 0% 98%; /* Replaced by light-accent-foreground */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  /* Define dark mode colors if needed */
+  /* .dark { ... } */
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* Apply light theme colors by default */
+    @apply bg-[hsl(var(--light-background))] text-[hsl(var(--light-foreground))];
+    /* Ensure smooth scrolling */
+    scroll-behavior: smooth;
+  }
+
+  /* Add subtle dot pattern background */
+  .bg-dot-pattern {
+    background-color: hsl(var(--light-background)); /* Ensure base color */
+    background-image: radial-gradient(hsl(var(--light-muted)) 1px, transparent 1px);
+    background-size: 16px 16px; /* Adjust size of grid */
+  }
+
+  /* Hide default cursor */
+  .custom-cursor-area {
+    cursor: none;
+  }
+  .custom-cursor-area * {
+    cursor: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Cursor Dot Style (can be placed here or in component) */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: hsl(var(--light-accent)); /* Pink dot */
+  border-radius: 50%;
+  pointer-events: none; /* Ignore mouse events */
+  z-index: 9999; /* Ensure it's on top */
+  mix-blend-mode: exclusion; /* Optional: cool blend effect */
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease; /* Smooth size transition on hover */
+}
+
+/* Style for when hovering over interactive elements (optional) */
+.cursor-dot-interactive {
+  width: 24px;
+  height: 24px;
+  background-color: hsla(var(--light-accent), 0.5);
+}
+
+/* Cursor Light Effect (can be placed here or in component) */
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px; /* Adjust size of light effect */
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0; /* Behind content but above background pattern */
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    hsla(var(--light-accent), 0.08) 0%, /* Pink hue, low opacity */
+    transparent 60% /* Fade out */
+  );
+  filter: blur(30px); /* Soften the effect */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-cursor-area:hover .cursor-light {
+  opacity: 1; /* Fade in on hover */
 }
