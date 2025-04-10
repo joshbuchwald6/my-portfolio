@@ -90,16 +90,23 @@ function smoothScrollTo(targetId: string) {
 
   const elementTop = element.offsetTop;
   const currentScroll = window.scrollY;
+  
+  // Adjust offset calculation (e.g., scroll slightly *past* the top)
+  const offset = 50; // Scroll 50px below the element's top
+  const targetScrollPosition = elementTop - offset;
 
   // Use Framer Motion's animate function for smooth scrolling
-  animate(currentScroll, elementTop, {
-    type: "spring", // Or "tween"
-    stiffness: 100,
-    damping: 30,
-    // duration: 0.8, // Use duration for tween
-    // ease: "easeInOut", // Use ease for tween
+  animate(currentScroll, targetScrollPosition, {
+    type: "spring",
+    stiffness: 60,  // Decreased stiffness for slower/smoother feel
+    damping: 25,   // Adjusted damping slightly
+    // You could also try tween:
+    // type: "tween",
+    // duration: 1.0, // Longer duration
+    // ease: "easeInOut",
     onUpdate: (latest) => {
-      window.scrollTo(0, latest);
+      // Ensure scroll doesn't go below 0
+      window.scrollTo(0, Math.max(0, latest));
     }
   });
 }
