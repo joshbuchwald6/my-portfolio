@@ -67,11 +67,11 @@ const navItems = [
 
 // --- Animation Variants ---
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 }, // Start slightly lower
+  initial: { opacity: 0, y: 20 },
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" } // Apply transition here
+    transition: { duration: 0.6, ease: "easeOut" } // Consistent duration
   },
 };
 
@@ -143,16 +143,13 @@ export default function PortfolioPage() {
         const targetId = anchor.getAttribute('href')?.substring(1);
         const element = document.getElementById(targetId || '');
         if (element) {
-          // TEMP: Simplify scroll logic for debugging
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          /* // Original offset logic
-          const offset = 80;
+          // Restore original offset logic
+          const offset = 80; // Adjust as needed for nav height
           const bodyRect = document.body.getBoundingClientRect().top;
           const elementRect = element.getBoundingClientRect().top;
           const elementPosition = elementRect - bodyRect;
           const offsetPosition = elementPosition - offset;
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          */
         }
       }
     };
@@ -209,13 +206,13 @@ export default function PortfolioPage() {
       {/* --- Navigation (Restored) --- */}
       <motion.header
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}
-        // TEMP: Disable scroll animation to test centering
-        // animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
-        // transition={{ duration: 0.3, ease: 'easeInOut' }}
+        // Restore scroll animation
+        animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         // Keep initial entry animation
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }} // Use entry animation transition
+        // animate={{ y: 0, opacity: 1 }} // This animate is now handled by the scroll logic one
+        // transition={{ duration: 0.5, ease: "easeOut" }} 
       >
         <nav className="flex items-center space-x-1 bg-white/60 backdrop-blur-md text-foreground p-1 rounded-full shadow-subtle border border-muted/30">
           {navItems.map((item) => {
@@ -254,6 +251,8 @@ export default function PortfolioPage() {
         {/* --- Hero Section --- */}
         <motion.section
           id="home"
+          initial="initial"
+          animate="animate"
           variants={fadeInUp}
           className="text-center min-h-[60vh] flex flex-col justify-center"
         >
@@ -291,13 +290,13 @@ export default function PortfolioPage() {
         {/* --- About Section --- */}
         <motion.section
           id="about"
-          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
           className="grid md:grid-cols-5 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInUp} className="md:col-span-2 rounded-lg overflow-hidden shadow-subtle">
+          <div className="md:col-span-2 rounded-lg overflow-hidden shadow-subtle">
             <Image
               src="/images/headshot.png" // Use your headshot
               alt="Sara Beer"
@@ -306,33 +305,33 @@ export default function PortfolioPage() {
               className="w-full h-auto object-cover"
               priority
             />
-          </motion.div>
-          <motion.div variants={staggerContainer} className="md:col-span-3 space-y-4">
-            <motion.h2 variants={fadeInUp} className="font-heading text-3xl md:text-4xl font-bold tracking-tight">
+          </div>
+          <div className="md:col-span-3 space-y-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight">
               Driven by strategy, <br />focused on impact.
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
+            </h2>
+            <p className="text-muted-foreground text-lg">
               Hi, I'm Sara. As a passionate Public Relations student at UF, I thrive on crafting compelling narratives and building meaningful connections. My focus is on leveraging strategic communication to drive measurable results and elevate brand presence.
-            </motion.p>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
+            </p>
+            <p className="text-muted-foreground text-lg">
               From digital campaigns to brand identity development, I bring a blend of creativity and analytical thinking to every project.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </motion.section>
 
         {/* --- Work Section --- */}
         <motion.section
           id="work"
-          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.1 }}
+          variants={fadeInUp}
           className="space-y-12"
         >
-          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
             Selected Work
-          </motion.h2>
-          <motion.div className="grid md:grid-cols-2 gap-8 md:gap-12">
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {projectsData.map((project, index) => (
               <motion.div
                 key={index}
@@ -370,22 +369,22 @@ export default function PortfolioPage() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </motion.section>
 
         {/* --- Certifications Section --- */}
         <motion.section
           id="certifications"
-          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
           className="space-y-12"
         >
-          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-center">
             Certifications
-          </motion.h2>
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {certificationsData.map((cert, index) => (
               <motion.div
                 key={index}
@@ -396,25 +395,25 @@ export default function PortfolioPage() {
                 <p className="text-xs text-muted-foreground">{cert.issuer}</p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </motion.section>
 
         {/* --- Contact Section --- */}
         <motion.section
           id="contact"
-          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
           className="text-center bg-gradient-to-r from-pink-50 via-purple-50 to-blue-50 py-20 rounded-lg shadow-inner border border-muted/30"
         >
-          <motion.h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Let's Connect
-          </motion.h2>
-          <motion.p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
             Interested in collaborating or have a question? Feel free to reach out!
-          </motion.p>
-          <motion.div className="flex justify-center space-x-4">
+          </p>
+          <div className="flex justify-center space-x-4">
             <MotionLink
               href="mailto:sara.beer@example.com" // REPLACE EMAIL
               className="bg-accent text-accent-foreground px-6 py-2.5 rounded-full text-base font-medium transition-colors hover:bg-opacity-90 shadow-sm"
@@ -433,7 +432,7 @@ export default function PortfolioPage() {
             >
               LinkedIn
             </MotionLink>
-          </motion.div>
+          </div>
         </motion.section>
 
       </motion.main>
