@@ -146,7 +146,8 @@ export default function Home() {
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero Section */}
         <section className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-          <div className="text-center">
+          <div className="parallax-bg absolute top-0 left-0 w-full h-full bg-fixed bg-cover" style={{ backgroundImage: 'url(/path/to/your/image.jpg)' }}></div>
+          <div className="text-center relative z-10">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
@@ -172,13 +173,6 @@ export default function Home() {
               Contact Me
             </motion.button>
           </div>
-          <motion.div
-            className="absolute top-0 left-0 w-full h-full"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
-          >
-            {/* Add floating SVG shapes or icons here */}
-          </motion.div>
         </section>
 
         {/* About Section */}
