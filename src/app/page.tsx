@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface Project {
@@ -120,6 +120,25 @@ const skills = [
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: Event) => {
+      e.preventDefault();
+      const targetId = (e.target as HTMLAnchorElement).getAttribute('href')?.slice(1);
+      const targetElement = document.getElementById(targetId!);
+      targetElement?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', handleScroll);
+    });
+
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.removeEventListener('click', handleScroll);
+      });
+    };
+  }, []);
 
   return (
     <>
