@@ -209,8 +209,13 @@ export default function PortfolioPage() {
       {/* --- Navigation (Restored) --- */}
       <motion.header
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-50`}
-        animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        // TEMP: Disable scroll animation to test centering
+        // animate={{ y: isNavHidden ? -100 : 0, opacity: isNavHidden ? 0 : 1 }}
+        // transition={{ duration: 0.3, ease: 'easeInOut' }}
+        // Keep initial entry animation
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }} // Use entry animation transition
       >
         <nav className="flex items-center space-x-1 bg-white/60 backdrop-blur-md text-foreground p-1 rounded-full shadow-subtle border border-muted/30">
           {navItems.map((item) => {
