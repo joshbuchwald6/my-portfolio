@@ -86,13 +86,12 @@ export default function PortfolioPage() {
   const { scrollY } = useScroll();
   const lastY = useRef(0);
 
-  // --- Custom Cursor State & Logic ---
+  // --- Cursor Light State & Logic ---
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [isLightVisible, setIsLightVisible] = useState(false);
 
-  // Adjusted spring settings for smoother follow
+  // Spring settings for the light effect position
   const springConfig = { damping: 30, stiffness: 200 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
@@ -103,26 +102,16 @@ export default function PortfolioPage() {
       cursorY.set(e.clientY);
     };
 
-    const handleMouseOver = (e: MouseEvent) => {
-      if ((e.target as Element).closest('a, button')) {
-        setIsHoveringInteractive(true);
-      } else {
-        setIsHoveringInteractive(false);
-      }
-    };
-
     const body = document.body;
     const handleMouseEnter = () => { setIsLightVisible(true); };
     const handleMouseLeave = () => { setIsLightVisible(false); };
 
     window.addEventListener('mousemove', moveCursor);
-    document.addEventListener('mouseover', handleMouseOver);
     body.addEventListener('mouseenter', handleMouseEnter);
     body.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
-      document.removeEventListener('mouseover', handleMouseOver);
       body.removeEventListener('mouseenter', handleMouseEnter);
       body.removeEventListener('mouseleave', handleMouseLeave);
     };
@@ -203,21 +192,11 @@ export default function PortfolioPage() {
 
   // --- Page JSX ---
   return (
-    <div className="bg-dot-pattern custom-cursor-area min-h-screen font-sans antialiased">
-      {/* --- Custom Cursor Elements --- */}
-      <motion.div
-        className={`cursor-dot ${isHoveringInteractive ? 'cursor-dot-interactive' : ''}`}
-        style={{
-          translateX: cursorXSpring,
-          translateY: cursorYSpring,
-        }}
-      />
+    <div className="bg-dot-pattern min-h-screen font-sans antialiased">
+      {/* --- Cursor Light Element (Keep) --- */}
       <motion.div
         className="cursor-light"
-        style={{
-          translateX: cursorXSpring,
-          translateY: cursorYSpring,
-        }}
+        style={{ translateX: cursorXSpring, translateY: cursorYSpring }}
         animate={{ opacity: isLightVisible ? 1 : 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       />

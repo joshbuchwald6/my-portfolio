@@ -58,36 +58,14 @@
     background-size: 16px 16px; /* Adjust size of grid */
   }
 
-  /* Hide default cursor */
-  .custom-cursor-area {
-    cursor: none;
-  }
-  .custom-cursor-area * {
-    cursor: none;
-  }
+  /* REMOVE: Hide default cursor rules */
+  /* .custom-cursor-area { cursor: none; } */
+  /* .custom-cursor-area * { cursor: none; } */
 }
 
-/* Custom Cursor Dot Style */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px; /* Increased size */
-  height: 12px; /* Increased size */
-  background-color: hsl(var(--light-accent)); /* Pink dot */
-  border-radius: 50%;
-  pointer-events: none; /* Ignore mouse events */
-  z-index: 9999; /* Ensure it's on top */
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease; 
-}
-
-/* Style for when hovering over interactive elements */
-.cursor-dot-interactive {
-  width: 30px; /* Increased size */
-  height: 30px; /* Increased size */
-  background-color: hsla(var(--light-accent), 0.4); /* Slightly less transparent */
-}
+/* REMOVE: Custom Cursor Dot Style */
+/* .cursor-dot { ... } */
+/* .cursor-dot-interactive { ... } */
 
 /* Cursor Light Effect */
 .cursor-light {
@@ -98,13 +76,13 @@
   height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 0; /* Behind content, above absolute background pattern if any */
+  z-index: 10; /* Increased z-index to be above background but below nav/content */
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsla(var(--light-accent), 0.15) 0%, /* Increased opacity slightly more */
+    hsla(var(--light-accent), 0.20) 0%, /* Slightly increased opacity */
     transparent 70%
   );
-  filter: blur(60px); /* Slightly more blur */
+  filter: blur(70px); /* More blur for softer spotlight */
   opacity: 0; /* Start hidden */
   transition: opacity 0.4s ease-in-out;
 }
