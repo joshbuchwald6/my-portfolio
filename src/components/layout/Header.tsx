@@ -18,84 +18,98 @@ const navItems = [
 
 export function Header({ className = '' }: HeaderProps) {
   const [activeSection, setActiveSection] = useState('home');
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Smooth scrolling for anchor links
+  // Smooth scrolling & active section update on click
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      if (anchor) {
         e.preventDefault();
-        const targetId = target.getAttribute('href')?.substring(1);
+        const targetId = anchor.getAttribute('href')?.substring(1);
         const element = document.getElementById(targetId || '');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
-          // Update active section immediately on click for better UX
           setActiveSection(targetId || 'home');
         }
       }
     };
-
     document.addEventListener('click', handleAnchorClick);
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   // Update active section based on scroll position
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      let currentSection = 'home';
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the section is visible
+        rootMargin: '-50% 0px -50% 0px' // Consider the middle of the viewport
+      }
+    );
+
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.href.substring(1));
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    // Special check for top of page for Home section
+    const checkTop = () => {
+      if (window.scrollY < window.innerHeight * 0.3) { // If near the top
+        setActiveSection('home');
+      }
+    }
+    window.addEventListener('scroll', checkTop);
+    checkTop(); // Initial check
+
+    return () => {
       navItems.forEach((item) => {
         const element = document.getElementById(item.href.substring(1));
         if (element) {
-          const rect = element.getBoundingClientRect();
-          // Check if the top of the section is within the top half of the viewport
-          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = item.href.substring(1);
-          }
+          observer.unobserve(element);
         }
       });
-      // Special case for the top of the page
-      if (window.scrollY < window.innerHeight / 2) {
-        currentSection = 'home';
-      }
-      setActiveSection(currentSection);
+      window.removeEventListener('scroll', checkTop);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once to set initial state
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <motion.header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 ${className}`}
+      className={`fixed top-5 left-1/2 -translate-x-1/2 z-50 ${className}`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="flex items-center space-x-1 bg-gray-900/80 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg">
+      {/* Use bg-black/70 or bg-zinc-900/70 for a slightly darker feel */}
+      <nav className="flex items-center space-x-1 bg-zinc-900/70 backdrop-blur-lg text-white p-1.5 rounded-full shadow-lg border border-white/10">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.href.substring(1);
           return (
             <Link key={item.name} href={item.href} passHref legacyBehavior>
               <motion.a
-                className={`relative flex items-center space-x-2 px-4 py-2 rounded-full text-sm transition-colors duration-200 hover:text-pink-400 ${
-                  isActive ? 'text-white' : 'text-gray-400'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 ${isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+                  }`}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
                 {isActive && (
                   <motion.div
-                    className="absolute inset-0 bg-gray-700/50 rounded-full z-0"
+                    className="absolute inset-0 bg-zinc-800 rounded-full z-0"
                     layoutId="active-pill"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    transition={{ type: 'spring', stiffness: 350, damping: 35 }}
                   />
                 )}
-                <Icon className={`relative z-10 h-4 w-4 ${isActive ? 'text-pink-400' : ''}`} />
-                <span className="relative z-10">{item.name}</span>
+                <Icon className={`relative z-10 h-4 w-4 shrink-0 ${isActive ? 'text-white' : ''}`} />
+                <span className="relative z-10 whitespace-nowrap">{item.name}</span>
               </motion.a>
             </Link>
           );
