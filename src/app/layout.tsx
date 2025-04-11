@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import './globals.css'
-import SpotlightGridBackground from '../components/sections/SpotlightGridBackground'
 import CursorGlowBackground from '../components/sections/CursorGlowBackground'
 
 // Font configuration
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body className="bg-background text-foreground antialiased">
-        <SpotlightGridBackground color='pink' />
         <CursorGlowBackground />
         {children}
       </body>
