@@ -1,0 +1,10 @@
+.background {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--background);
+  background-image: radial-gradient(var(--spotlight-color) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+  pointer-events: none;
+} 

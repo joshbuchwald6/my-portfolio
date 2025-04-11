@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import './globals.css'
 import SpotlightGridBackground from '../components/sections/SpotlightGridBackground'
 
 // Font configuration
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // CSS Variable for Inter
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
-      <body className="bg-background text-foreground font-sans antialiased">
+    <html lang="en" className={inter.className}>
+      <body className="bg-background text-foreground antialiased">
         <SpotlightGridBackground color='pink' />
         {children}
       </body>

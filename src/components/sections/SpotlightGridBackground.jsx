@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './SpotlightGridBackground.module.styl'
+import styles from './SpotlightGridBackground.module.css'
 
 function SpotlightGridBackground ({ color = 'pink', className = '' }) {
   return (
