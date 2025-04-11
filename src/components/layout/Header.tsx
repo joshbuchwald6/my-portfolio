@@ -19,18 +19,18 @@ const navItems = [
 export function Header({ className = '' }: HeaderProps) {
   return (
     <motion.header
-      className={`relative pt-5 mb-5 flex justify-center z-50 ${className}`}
+      className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="flex items-center space-x-1 bg-zinc-900/70 backdrop-blur-lg text-white p-1.5 rounded-full shadow-lg border border-white/10">
+      <nav className="flex items-center space-x-1 bg-white/70 backdrop-blur-md text-foreground p-2 rounded-full shadow-lg border border-muted/30">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
             <Link key={item.name} href={item.href} passHref legacyBehavior>
               <motion.a
-                className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 text-gray-400 hover:text-white`}
+                className={`relative flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-sm transition-colors duration-200 text-muted-foreground hover:text-foreground`}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
