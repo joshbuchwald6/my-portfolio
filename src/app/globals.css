@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --light-background: 0 0% 98%;
+    --light-background: 0 0% 100%;
     --light-foreground: 240 10% 3.9%;
-    --light-muted: 0 0% 90%;
+    --light-muted: 240 5% 96%;
     --light-muted-foreground: 240 4% 46%;
-    --light-accent: 330 83% 61%;
-    --light-accent-foreground: 0 0% 100%;
+    --light-accent: 240 5% 96%;
+    --light-accent-foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -49,7 +49,7 @@
   z-index: -10;
   background: radial-gradient(
     circle at center,
-    hsl(var(--light-accent) / 0.4) 0%,
+    hsl(var(--light-muted) / 0.4) 0%,
     transparent 60%
   );
 }
@@ -62,7 +62,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    hsl(var(--light-accent) / 0.25) 0%,
+    hsl(var(--light-muted) / 0.25) 0%,
     transparent 70%
   );
   filter: blur(80px);
