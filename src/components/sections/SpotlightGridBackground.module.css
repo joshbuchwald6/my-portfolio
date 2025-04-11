@@ -2,21 +2,21 @@
   position: fixed;
   z-index: -1;
   inset: 0;
-  background-color: var(--background);
+  background-color: #f8f9fa;
   background-image: 
     radial-gradient(var(--spotlight-color) 1px, transparent 1px),
     radial-gradient(var(--spotlight-color) 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
-  opacity: 0.4;
+  opacity: 0.2;
   pointer-events: none;
   animation: gridMove 20s linear infinite;
 }
 
 .spotlight {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   left: var(--x);
   top: var(--y);
   transform: translate(-50%, -50%);
@@ -25,10 +25,10 @@
     var(--spotlight-color) 0%,
     transparent 80%
   );
-  opacity: 0.2;
+  opacity: 0.15;
   transition: left 0.15s ease-out, top 0.15s ease-out;
   pointer-events: none;
-  filter: blur(20px);
+  filter: blur(15px);
 }
 
 @keyframes gridMove {
