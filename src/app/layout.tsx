@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import './globals.css'
 import CursorGlowBackground from '../components/sections/CursorGlowBackground'
+import GridBackground from '../components/sections/GridBackground'
 
 // Font configuration
 const inter = Inter({
@@ -21,7 +22,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="bg-background text-foreground antialiased">
+      <body className="bg-white text-foreground antialiased">
+        <GridBackground />
         <CursorGlowBackground />
         {children}
       </body>
