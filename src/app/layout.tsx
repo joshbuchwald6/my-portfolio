@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SpotlightGridBackground from '../components/sections/SpotlightGridBackground'
 
 // Font configuration
 const inter = Inter({
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="bg-background text-foreground font-sans antialiased">
+        <SpotlightGridBackground color='pink' />
         {children}
       </body>
     </html>
