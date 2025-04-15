@@ -373,7 +373,7 @@ export default function Portfolio() {
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4"
             >
-              <GlowingButton className="w-full sm:w-auto" onClick={(e) => {
+              <GlowingButton className="w-full" onClick={(e) => {
                 e.preventDefault()
                 const target = document.querySelector('#contact')
                 if (target) {
@@ -382,7 +382,7 @@ export default function Portfolio() {
                   
                   const start = window.pageYOffset
                   const startTime = performance.now()
-                  const duration = 1500 // 1.5 seconds
+                  const duration = 1500
                   
                   const easeInOutCubic = (t) => 
                     t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
@@ -405,9 +405,9 @@ export default function Portfolio() {
                 }
               }}>Get In Touch</GlowingButton>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full">
                 <Link href="/pdfs/sararesume.pdf" target="_blank">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-gray-300">
+                  <Button variant="outline" size="lg" className="w-full border-2 border-gray-300">
                     View Resume
                   </Button>
                 </Link>
@@ -759,7 +759,7 @@ export default function Portfolio() {
                   className={`${cert.color} rounded-lg p-6 transition-all duration-300 hover:shadow-md`}
                 >
                   <div className="flex items-center gap-6">
-                    <motion.div 
+                    <motion.div
                       className="w-16 h-16 relative shrink-0"
                       whileHover={{ y: [0, -5, 0] }}
                       transition={{ duration: 0.5 }}
@@ -772,13 +772,13 @@ export default function Portfolio() {
                       />
                     </motion.div>
                     <div className="flex-grow">
-                      <div className="flex items-start justify-between">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div>
-                          <h3 className="text-xl font-semibold text-gray-900">{cert.title}</h3>
-                          <p className="text-gray-600">{cert.issuer}</p>
+                          <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{cert.title}</h3>
+                          <p className="text-gray-600 text-sm sm:text-base">{cert.issuer}</p>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <Clock className="w-4 h-4" />
+                        <div className="flex items-center gap-2 text-sm text-gray-500 whitespace-nowrap">
+                          <Clock className="w-4 h-4 shrink-0" />
                           <span>Issued {cert.date}</span>
                         </div>
                       </div>
