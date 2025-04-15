@@ -1,23 +1,26 @@
-import { Inter } from 'next/font/google'
-import { ClientBody } from '@/components/layout/ClientBody'
-import '@/styles/globals.css'
+import type React from "react"
+import "@/app/globals.css"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: 'Josh Buchwald',
-  description: 'Josh Buchwald\'s Portfolio',
+  title: "Sara Beer - PR Portfolio",
+  description: "Public Relations Professional Portfolio",
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ClientBody>{children}</ClientBody>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
