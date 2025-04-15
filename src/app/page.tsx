@@ -333,7 +333,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center py-16 md:py-32">
-        <div className="container max-w-6xl mx-auto px-4">
+        <div className="container max-w-6xl mx-auto px-2">
           <div className="flex flex-col items-center text-center space-y-8 md:space-y-12">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -348,7 +348,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg sm:text-xl text-gray-600 max-w-2xl px-4"
+              className="whitespace-nowrap text-base sm:text-lg text-gray-600 max-w-4xl px-0"
             >
               Combined Degree Public Relations Student at the University of Florida
             </motion.p>
@@ -361,7 +361,7 @@ export default function Portfolio() {
             >
               <div className="w-full sm:w-auto">
                 <GlowingButton
-                  className="w-full sm:w-auto min-w-[180px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03]"
+                  className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03]"
                   onClick={e => {
                     e.preventDefault()
                     const target = document.querySelector('#contact')
@@ -399,7 +399,7 @@ export default function Portfolio() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="w-full sm:w-auto min-w-[180px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] hover:bg-gray-100"
+                      className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] hover:bg-gray-100"
                     >
                       View Resume
                     </Button>
