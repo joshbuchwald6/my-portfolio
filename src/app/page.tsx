@@ -371,9 +371,9 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none mx-auto px-4"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-[280px] mx-auto px-4"
             >
-              <div className="w-full">
+              <div className="w-full sm:w-[280px]">
                 <GlowingButton className="w-full" onClick={(e) => {
                   e.preventDefault()
                   const target = document.querySelector('#contact')
@@ -407,7 +407,7 @@ export default function Portfolio() {
                 }}>Get In Touch</GlowingButton>
               </div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-[280px]">
                 <Link href="/pdfs/sararesume.pdf" target="_blank">
                   <Button variant="outline" size="lg" className="w-full border-2 border-gray-300">
                     View Resume
