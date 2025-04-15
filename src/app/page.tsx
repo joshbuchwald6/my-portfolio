@@ -341,26 +341,21 @@ export default function Portfolio() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight max-sm:text-4xl max-sm:font-extrabold max-sm:tracking-tight max-sm:leading-tight max-sm:whitespace-nowrap">Sara Beer</h1>
+              <h1 className="text-4xl lg:text-7xl font-extrabold tracking-tight leading-tight text-center whitespace-nowrap max-w-[min(100%,900px)] mx-auto">Sara Beer</h1>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base sm:text-lg text-gray-600 max-w-4xl px-0 max-sm:text-sm max-sm:text-zinc-600 max-sm:max-w-[90%] max-sm:mx-auto max-sm:mt-3"
+              className="text-sm max-w-[90%] mx-auto text-zinc-600 mt-3 lg:text-lg lg:max-w-4xl lg:mx-auto lg:mt-0"
             >
               Combined Degree Public Relations Student at the University of Florida
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto max-sm:flex-col max-sm:items-center max-sm:gap-3 max-sm:w-full max-sm:mt-6 max-sm:mb-8"
-            >
-              <GlowingButton
-                className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] max-sm:min-w-[200px] max-sm:px-6 max-sm:py-3 max-sm:text-sm max-sm:font-semibold max-sm:text-center max-sm:rounded-lg max-sm:shadow-[0_0_20px_rgba(236,72,153,0.25)] max-sm:relative max-sm:z-10"
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 mx-auto">
+              <Button
+                className="min-w-[160px] px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 text-center transition hover:opacity-90 shadow-sm border-0"
                 onClick={e => {
                   e.preventDefault()
                   const target = document.querySelector('#contact')
@@ -386,23 +381,17 @@ export default function Portfolio() {
                 }}
               >
                 Get In Touch
-              </GlowingButton>
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto max-sm:min-w-[200px] max-sm:px-6 max-sm:py-3 max-sm:text-sm max-sm:font-semibold max-sm:text-center max-sm:rounded-lg max-sm:z-20"
-              >
-                <Link href="/pdfs/sararesume.pdf" target="_blank" tabIndex={0}>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] hover:bg-gray-100 max-sm:min-w-[200px] max-sm:px-6 max-sm:py-3 max-sm:text-sm max-sm:font-semibold max-sm:text-center max-sm:rounded-lg max-sm:z-20"
-                  >
-                    View Resume
-                  </Button>
-                </Link>
-              </motion.div>
-            </motion.div>
+              </Button>
+              <Link href="/pdfs/sararesume.pdf" target="_blank" tabIndex={0}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="min-w-[160px] px-6 py-3 rounded-full text-sm font-semibold text-gray-800 border border-gray-300 bg-white text-center transition hover:bg-gray-100 shadow-sm"
+                >
+                  View Resume
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
