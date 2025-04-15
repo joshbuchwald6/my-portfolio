@@ -373,7 +373,37 @@ export default function Portfolio() {
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-6"
             >
-              <GlowingButton>Get In Touch</GlowingButton>
+              <GlowingButton onClick={(e) => {
+                e.preventDefault()
+                const target = document.querySelector('#contact')
+                if (target) {
+                  const offset = 100
+                  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
+                  
+                  const start = window.pageYOffset
+                  const startTime = performance.now()
+                  const duration = 1500 // 1.5 seconds
+                  
+                  const easeInOutCubic = (t) => 
+                    t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+
+                  const animateScroll = (currentTime) => {
+                    const timeElapsed = currentTime - startTime
+                    const progress = Math.min(timeElapsed / duration, 1)
+                    
+                    const easedProgress = easeInOutCubic(progress)
+                    const distance = targetPosition - start
+                    
+                    window.scrollTo(0, start + distance * easedProgress)
+                    
+                    if (progress < 1) {
+                      requestAnimationFrame(animateScroll)
+                    }
+                  }
+                  
+                  requestAnimationFrame(animateScroll)
+                }
+              }}>Get In Touch</GlowingButton>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <Link href="/pdfs/sararesume.pdf" target="_blank">
@@ -775,7 +805,7 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <FadeInSection delay={0.2}>
               <motion.a
-                href="mailto:sara.beer@example.com"
+                href="mailto:sarajbeer@gmail.com"
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
               >
@@ -783,13 +813,13 @@ export default function Portfolio() {
                   <Mail className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold">Email</h3>
-                <p className="text-gray-600 text-center">sara.beer@example.com</p>
+                <p className="text-gray-600 text-center">sarajbeer@gmail.com</p>
               </motion.a>
             </FadeInSection>
 
             <FadeInSection delay={0.3}>
               <motion.a
-                href="tel:+13525550123"
+                href="tel:+13055223176"
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
               >
@@ -797,7 +827,7 @@ export default function Portfolio() {
                   <Phone className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold">Phone</h3>
-                <p className="text-gray-600 text-center">(352) 555-0123</p>
+                <p className="text-gray-600 text-center">(305) 522-3176</p>
               </motion.a>
             </FadeInSection>
 
