@@ -514,32 +514,31 @@ export default function Portfolio() {
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {/* Project 1 */}
             <FadeInSection delay={0.1}>
-              <motion.div whileHover={{ y: -10 }} className="group">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+              <motion.div whileHover={{ y: -10 }} className="group h-full">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full flex flex-col">
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-white flex items-center justify-center p-8">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }} className="relative w-full h-full">
                       <Image
                         src="/images/CYM.jpg"
                         alt="Brand Revitalization Campaign"
-                        width={600}
-                        height={400}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-contain"
                       />
                     </motion.div>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                  <CardHeader className="flex-none">
+                    <CardTitle className="text-xl group-hover:text-pink-500 transition-colors">
                       Brand Revitalization Campaign
                     </CardTitle>
-                    <CardDescription className="text-base">Digital Strategy • Content Creation</CardDescription>
+                    <CardDescription className="text-sm">Digital Strategy • Content Creation</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
+                  <CardContent className="flex-grow">
+                    <p className="text-gray-600 text-sm">
                       Led a comprehensive brand refresh for a local non-profit, resulting in 40% increased
                       engagement and 25% growth in donations.
                     </p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex-none">
                     <Link href="/pdfs/cym-case-study.pdf" target="_blank">
                       <Button
                         variant="ghost"
@@ -567,32 +566,31 @@ export default function Portfolio() {
 
             {/* Project 2 */}
             <FadeInSection delay={0.2}>
-              <motion.div whileHover={{ y: -10 }} className="group">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+              <motion.div whileHover={{ y: -10 }} className="group h-full">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full flex flex-col">
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-white flex items-center justify-center p-8">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }} className="relative w-full h-full">
                       <Image
                         src="/images/ebay.svg"
                         alt="eBay Marketing Campaign"
-                        width={600}
-                        height={400}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-contain"
                       />
                     </motion.div>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                  <CardHeader className="flex-none">
+                    <CardTitle className="text-xl group-hover:text-pink-500 transition-colors">
                       eBay Marketing Campaign
                     </CardTitle>
-                    <CardDescription className="text-base">Content Planning • Analytics</CardDescription>
+                    <CardDescription className="text-sm">Content Planning • Analytics</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
+                  <CardContent className="flex-grow">
+                    <p className="text-gray-600 text-sm">
                       Developed and implemented a cross-platform marketing strategy that increased sales
                       by 65% in three months.
                     </p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex-none">
                     <Link href="/pdfs/ebay-case-study.pdf" target="_blank">
                       <Button
                         variant="ghost"
@@ -620,32 +618,31 @@ export default function Portfolio() {
 
             {/* Project 3 */}
             <FadeInSection delay={0.3}>
-              <motion.div whileHover={{ y: -10 }} className="group">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+              <motion.div whileHover={{ y: -10 }} className="group h-full">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full flex flex-col">
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-white flex items-center justify-center p-8">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }} className="relative w-full h-full">
                       <Image
                         src="/images/Nikon_Logo.svg"
                         alt="Nikon Product Launch"
-                        width={600}
-                        height={400}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-contain"
                       />
                     </motion.div>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                  <CardHeader className="flex-none">
+                    <CardTitle className="text-xl group-hover:text-pink-500 transition-colors">
                       Nikon Product Launch
                     </CardTitle>
-                    <CardDescription className="text-base">Strategy • Media Relations</CardDescription>
+                    <CardDescription className="text-sm">Strategy • Media Relations</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
+                  <CardContent className="flex-grow">
+                    <p className="text-gray-600 text-sm">
                       Created a comprehensive product launch campaign for Nikon's latest DSLR camera,
                       achieving 150% of sales targets.
                     </p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex-none">
                     <Link href="/pdfs/nikon-case-study.pdf" target="_blank">
                       <Button
                         variant="ghost"
@@ -673,32 +670,31 @@ export default function Portfolio() {
 
             {/* Project 4 */}
             <FadeInSection delay={0.4}>
-              <motion.div whileHover={{ y: -10 }} className="group">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+              <motion.div whileHover={{ y: -10 }} className="group h-full">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full flex flex-col">
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-white flex items-center justify-center p-8">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }} className="relative w-full h-full">
                       <Image
                         src="/images/alphapr.png"
                         alt="Alpha PR Campaign"
-                        width={600}
-                        height={400}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-contain"
                       />
                     </motion.div>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                  <CardHeader className="flex-none">
+                    <CardTitle className="text-xl group-hover:text-pink-500 transition-colors">
                       Alpha PR Campaign
                     </CardTitle>
-                    <CardDescription className="text-base">Brand Strategy • Digital Marketing</CardDescription>
+                    <CardDescription className="text-sm">Brand Strategy • Digital Marketing</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
+                  <CardContent className="flex-grow">
+                    <p className="text-gray-600 text-sm">
                       Spearheaded a comprehensive PR campaign for Alpha, resulting in
                       300% increase in brand visibility and successful market positioning.
                     </p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex-none">
                     <Link href="/pdfs/alphapr.pdf" target="_blank">
                       <Button
                         variant="ghost"
