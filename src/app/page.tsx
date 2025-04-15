@@ -342,20 +342,6 @@ export default function Portfolio() {
               className="relative"
             >
               <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight">Sara Beer</h1>
-              <motion.div
-                className="absolute -top-4 sm:-top-6 md:-top-8 -right-4 sm:-right-6 md:-right-8 text-pink-500"
-                animate={{
-                  rotate: [0, 20, 0, -20, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
-              </motion.div>
             </motion.div>
 
             <motion.p
@@ -371,7 +357,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-[280px] mx-auto px-4"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md mx-auto justify-center items-center"
             >
               <div className="w-full sm:w-[280px]">
                 <GlowingButton className="w-full" onClick={(e) => {
@@ -380,28 +366,21 @@ export default function Portfolio() {
                   if (target) {
                     const offset = 100
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
-                    
                     const start = window.pageYOffset
                     const startTime = performance.now()
                     const duration = 1500
-                    
                     const easeInOutCubic = (t) => 
                       t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-
                     const animateScroll = (currentTime) => {
                       const timeElapsed = currentTime - startTime
                       const progress = Math.min(timeElapsed / duration, 1)
-                      
                       const easedProgress = easeInOutCubic(progress)
                       const distance = targetPosition - start
-                      
                       window.scrollTo(0, start + distance * easedProgress)
-                      
                       if (progress < 1) {
                         requestAnimationFrame(animateScroll)
                       }
                     }
-                    
                     requestAnimationFrame(animateScroll)
                   }
                 }}>Get In Touch</GlowingButton>
