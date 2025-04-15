@@ -1,0 +1,10 @@
+.next
+.eslintrc.json
+.eslintrc.js
+.eslintrc
+.eslintignore
+node_modules
+.cache
+dist
+build
+.git 

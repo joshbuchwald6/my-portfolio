@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%; /* Example dark */
+    --foreground: 0 0% 98%; /* Example dark */
+
+    /* Your Light Theme Colors (defined in tailwind.config.js) */
+    --light-background: 0 0% 98%; /* #F9F9F9 */
+    --light-foreground: 240 10% 3.9%; /* #111111 */
+    --light-muted: 0 0% 89.8%; /* #E5E5E5 */
+    --light-muted-foreground: 240 4% 46.1%; /* #666666 */
+    --light-accent: 330 83.3% 60.8%; /* #EC4899 */
+    --light-accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    /* --muted: 240 4.8% 95.9%; /* Replaced by light-muted */
+    /* --muted-foreground: 240 3.8% 46.1%; /* Replaced by light-muted-foreground */
+    /* --accent: 240 5.9% 10%; /* Replaced by light-accent */
+    /* --accent-foreground: 0 0% 98%; /* Replaced by light-accent-foreground */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  /* Define dark mode colors if needed */
+  /* .dark { ... } */
+}
+ 
+@layer base {
+  * {
+    /* REMOVE: @apply border-border; */
+  }
+  body {
+    /* Apply light theme colors by default */
+    @apply bg-[hsl(var(--light-background))] text-[hsl(var(--light-foreground))];
+    /* Ensure smooth scrolling */
+    scroll-behavior: smooth;
+  }
+
+  /* Add subtle dot pattern background */
+  .bg-dot-pattern {
+    position: relative; /* Ensure z-index context */
+    z-index: 0; /* Base layer */
+    background-color: hsl(var(--light-background)); /* Ensure base color */
+    background-image: radial-gradient(hsl(var(--light-muted)) 1px, transparent 1px);
+    background-size: 16px 16px; /* Adjust size of grid */
+  }
+
+  /* REMOVE: Hide default cursor rules */
+  /* .custom-cursor-area { cursor: none; } */
+  /* .custom-cursor-area * { cursor: none; } */
+}
+
+/* REMOVE: Custom Cursor Dot Style */
+/* .cursor-dot { ... } */
+/* .cursor-dot-interactive { ... } */
+
+/* Background Spotlight Effect */
+.bg-spotlight {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, hsla(var(--light-accent), 0.4), transparent 60%); /* DEBUG: Increased opacity significantly */
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Optional pulse animation */
+/* @keyframes pulse { 
+     from { opacity: 0.7; transform: scale(1); } 
+     to { opacity: 1; transform: scale(1.05); } 
+   } */
+
+/* Cursor Light Effect (Remove or comment out if replaced by bg-spotlight) */
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  /* z-index should be low, behind content but above background */
+  z-index: -1; /* Try negative to be behind standard elements */ 
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    hsla(var(--light-accent), 0.25) 0%, /* Keep increased opacity */
+    transparent 70%
+  );
+  filter: blur(80px); /* Keep increased blur */
+  opacity: 0; /* Revert: Start hidden */
+  transition: opacity 0.4s ease-in-out; /* Revert: Enable transition */
+}
