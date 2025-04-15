@@ -417,41 +417,6 @@ export default function Portfolio() {
             </motion.div>
           </div>
         </div>
-
-        <motion.div
-          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12 cursor-pointer flex justify-center w-full"
-          animate={{ 
-            y: [0, 15, 0],
-            opacity: [0.6, 1, 0.6]
-          }}
-          transition={{ 
-            duration: 2.5, 
-            repeat: Number.POSITIVE_INFINITY, 
-            ease: "easeInOut" 
-          }}
-          onClick={() => {
-            const aboutSection = document.querySelector('#about')
-            if (aboutSection) {
-              aboutSection.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-8 h-8 sm:w-10 sm:h-10 text-gray-600 hover:text-pink-500 transition-colors"
-          >
-            <path d="M12 5v14" />
-            <path d="m19 12-7 7-7-7" />
-          </svg>
-        </motion.div>
       </section>
 
       {/* About Section */}
