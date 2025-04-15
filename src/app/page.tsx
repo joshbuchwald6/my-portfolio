@@ -198,9 +198,7 @@ export default function Portfolio() {
       title: "Mobile Marketing Strategy",
       issuer: "LinkedIn",
       date: "Jul 2024",
-      skills: ["Marketing Strategy", "Mobile Marketing"],
       icon: "/images/linkedin.svg",
-      showCredential: true,
       color: "bg-blue-50"
     },
     {
@@ -214,9 +212,7 @@ export default function Portfolio() {
       title: "Hootsuite Platform Certification",
       issuer: "Hootsuite",
       date: "Nov 2023",
-      credentialId: "87388457",
       icon: "/images/hootsuite.svg",
-      showCredential: true,
       color: "bg-red-50"
     },
     {
@@ -395,7 +391,7 @@ export default function Portfolio() {
               <GlowingButton>Get In Touch</GlowingButton>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/sararesume.pdf" target="_blank">
+                <Link href="/pdfs/sararesume.pdf" target="_blank">
                   <Button variant="outline" size="lg" className="border-2 border-gray-300">
                     View Resume
                   </Button>
@@ -442,7 +438,7 @@ export default function Portfolio() {
                 <RotatingElement className="relative z-10">
                   <div className="rounded-3xl overflow-hidden border-8 border-white shadow-xl">
                     <Image
-                      src="/headshot.png"
+                      src="/images/headshot.png"
                       alt="Sara Beer"
                       width={600}
                       height={600}
@@ -911,33 +907,6 @@ export default function Portfolio() {
                           <span>Issued {cert.date}</span>
                         </div>
                       </div>
-                      {cert.skills && (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {cert.skills.map(skill => (
-                            <span
-                              key={skill}
-                              className="px-3 py-1 bg-white/50 text-gray-700 rounded-full text-sm font-medium"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {cert.credentialId && (
-                        <p className="mt-2 text-sm text-gray-600">
-                          Credential ID: {cert.credentialId}
-                        </p>
-                      )}
-                      {cert.showCredential && (
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="mt-4 flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
-                        >
-                          Show credential
-                          <ArrowUpRight className="w-4 h-4" />
-                        </motion.button>
-                      )}
                     </div>
                   </div>
                 </motion.div>
