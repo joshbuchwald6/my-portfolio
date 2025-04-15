@@ -200,13 +200,15 @@ export default function Portfolio() {
       date: "Jul 2024",
       skills: ["Marketing Strategy", "Mobile Marketing"],
       icon: "/images/linkedin.svg",
-      showCredential: true
+      showCredential: true,
+      color: "bg-blue-50"
     },
     {
       title: "Google Analytics",
       issuer: "Google",
       date: "Jun 2024",
-      icon: "/images/google.svg"
+      icon: "/images/google.svg",
+      color: "bg-gray-50"
     },
     {
       title: "Hootsuite Platform Certification",
@@ -214,25 +216,22 @@ export default function Portfolio() {
       date: "Nov 2023",
       credentialId: "87388457",
       icon: "/images/hootsuite.svg",
-      showCredential: true
-    },
-    {
-      title: '"Make It Happen" Award',
-      issuer: "University of Florida Innovation Academy",
-      date: "Jun 2022",
-      icon: "/images/CYM.jpg"
+      showCredential: true,
+      color: "bg-red-50"
     },
     {
       title: "Microsoft PowerPoint 2013",
       issuer: "Microsoft",
       date: "Apr 2020",
-      icon: "/images/microsoft.svg"
+      icon: "/images/microsoft.svg",
+      color: "bg-orange-50"
     },
     {
       title: "Microsoft Word 2013 Certification",
       issuer: "Microsoft",
       date: "Apr 2020",
-      icon: "/images/microsoft.svg"
+      icon: "/images/microsoft.svg",
+      color: "bg-green-50"
     }
   ]
 
@@ -396,9 +395,11 @@ export default function Portfolio() {
               <GlowingButton>Get In Touch</GlowingButton>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="outline" size="lg" className="border-2 border-gray-300">
-                  View Resume
-                </Button>
+                <Link href="/sararesume.pdf" target="_blank">
+                  <Button variant="outline" size="lg" className="border-2 border-gray-300">
+                    View Resume
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
           </div>
@@ -441,7 +442,7 @@ export default function Portfolio() {
                 <RotatingElement className="relative z-10">
                   <div className="rounded-3xl overflow-hidden border-8 border-white shadow-xl">
                     <Image
-                      src="/placeholder.svg?height=600&width=600"
+                      src="/headshot.png"
                       alt="Sara Beer"
                       width={600}
                       height={600}
@@ -868,7 +869,7 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 px-4 relative z-10">
+      <section className="py-20 px-4 relative z-10 bg-white">
         <div className="max-w-6xl mx-auto">
           <FadeInSection>
             <h2 className="text-4xl font-bold text-center mb-4">Certifications & Education</h2>
@@ -878,59 +879,68 @@ export default function Portfolio() {
             </p>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {certifications.map((cert, index) => (
               <FadeInSection key={cert.title} delay={index * 0.1}>
-                <Card className="group hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="w-12 h-12 relative">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`${cert.color} rounded-lg p-6 transition-all duration-300 hover:shadow-md`}
+                >
+                  <div className="flex items-center gap-6">
+                    <motion.div 
+                      className="w-16 h-16 relative shrink-0"
+                      whileHover={{ y: [0, -5, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <Image
                         src={cert.icon}
                         alt={cert.issuer}
                         fill
                         className="object-contain"
                       />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{cert.title}</CardTitle>
-                      <CardDescription>{cert.issuer}</CardDescription>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Clock className="w-4 h-4" />
-                      <span>Issued {cert.date}</span>
-                    </div>
-                    {cert.skills && (
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {cert.skills.map(skill => (
-                          <span
-                            key={skill}
-                            className="px-2 py-1 bg-pink-100 text-pink-600 rounded-full text-xs"
-                          >
-                            {skill}
-                          </span>
-                        ))}
+                    </motion.div>
+                    <div className="flex-grow">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-900">{cert.title}</h3>
+                          <p className="text-gray-600">{cert.issuer}</p>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                          <Clock className="w-4 h-4" />
+                          <span>Issued {cert.date}</span>
+                        </div>
                       </div>
-                    )}
-                    {cert.credentialId && (
-                      <p className="mt-2 text-sm text-gray-500">
-                        Credential ID: {cert.credentialId}
-                      </p>
-                    )}
-                  </CardContent>
-                  {cert.showCredential && (
-                    <CardFooter>
-                      <Button
-                        variant="ghost"
-                        className="w-full justify-between hover:bg-pink-50"
-                      >
-                        Show credential
-                        <ArrowUpRight className="w-4 h-4" />
-                      </Button>
-                    </CardFooter>
-                  )}
-                </Card>
+                      {cert.skills && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {cert.skills.map(skill => (
+                            <span
+                              key={skill}
+                              className="px-3 py-1 bg-white/50 text-gray-700 rounded-full text-sm font-medium"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {cert.credentialId && (
+                        <p className="mt-2 text-sm text-gray-600">
+                          Credential ID: {cert.credentialId}
+                        </p>
+                      )}
+                      {cert.showCredential && (
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="mt-4 flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                        >
+                          Show credential
+                          <ArrowUpRight className="w-4 h-4" />
+                        </motion.button>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
               </FadeInSection>
             ))}
           </div>
