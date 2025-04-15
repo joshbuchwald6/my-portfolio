@@ -371,39 +371,41 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto sm:mx-0 px-4"
             >
-              <GlowingButton className="w-full" onClick={(e) => {
-                e.preventDefault()
-                const target = document.querySelector('#contact')
-                if (target) {
-                  const offset = 100
-                  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
-                  
-                  const start = window.pageYOffset
-                  const startTime = performance.now()
-                  const duration = 1500
-                  
-                  const easeInOutCubic = (t) => 
-                    t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+              <div className="w-full">
+                <GlowingButton className="w-full" onClick={(e) => {
+                  e.preventDefault()
+                  const target = document.querySelector('#contact')
+                  if (target) {
+                    const offset = 100
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
+                    
+                    const start = window.pageYOffset
+                    const startTime = performance.now()
+                    const duration = 1500
+                    
+                    const easeInOutCubic = (t) => 
+                      t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
 
-                  const animateScroll = (currentTime) => {
-                    const timeElapsed = currentTime - startTime
-                    const progress = Math.min(timeElapsed / duration, 1)
-                    
-                    const easedProgress = easeInOutCubic(progress)
-                    const distance = targetPosition - start
-                    
-                    window.scrollTo(0, start + distance * easedProgress)
-                    
-                    if (progress < 1) {
-                      requestAnimationFrame(animateScroll)
+                    const animateScroll = (currentTime) => {
+                      const timeElapsed = currentTime - startTime
+                      const progress = Math.min(timeElapsed / duration, 1)
+                      
+                      const easedProgress = easeInOutCubic(progress)
+                      const distance = targetPosition - start
+                      
+                      window.scrollTo(0, start + distance * easedProgress)
+                      
+                      if (progress < 1) {
+                        requestAnimationFrame(animateScroll)
+                      }
                     }
+                    
+                    requestAnimationFrame(animateScroll)
                   }
-                  
-                  requestAnimationFrame(animateScroll)
-                }
-              }}>Get In Touch</GlowingButton>
+                }}>Get In Touch</GlowingButton>
+              </div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full">
                 <Link href="/pdfs/sararesume.pdf" target="_blank">
@@ -417,9 +419,22 @@ export default function Portfolio() {
         </div>
 
         <motion.div
-          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12 cursor-pointer"
+          animate={{ 
+            y: [0, 15, 0],
+            opacity: [0.6, 1, 0.6]
+          }}
+          transition={{ 
+            duration: 2.5, 
+            repeat: Number.POSITIVE_INFINITY, 
+            ease: "easeInOut" 
+          }}
+          onClick={() => {
+            const aboutSection = document.querySelector('#about')
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: 'smooth' })
+            }
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -428,10 +443,10 @@ export default function Portfolio() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400"
+            className="w-8 h-8 sm:w-10 sm:h-10 text-gray-600 hover:text-pink-500 transition-colors"
           >
             <path d="M12 5v14" />
             <path d="m19 12-7 7-7-7" />
