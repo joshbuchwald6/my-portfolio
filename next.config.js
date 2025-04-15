@@ -17,12 +17,21 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.styl$/,
+      test: /\.css$/,
       use: [
         'style-loader',
-        'css-loader',
-        'stylus-loader'
-      ]
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: {
+              auto: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+        },
+        'postcss-loader',
+      ],
     })
     return config
   }
