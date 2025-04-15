@@ -193,6 +193,49 @@ export default function Portfolio() {
     }
   }, [])
 
+  const certifications = [
+    {
+      title: "Mobile Marketing Strategy",
+      issuer: "LinkedIn",
+      date: "Jul 2024",
+      skills: ["Marketing Strategy", "Mobile Marketing"],
+      icon: "/images/linkedin.svg",
+      showCredential: true
+    },
+    {
+      title: "Google Analytics",
+      issuer: "Google",
+      date: "Jun 2024",
+      icon: "/images/google.svg"
+    },
+    {
+      title: "Hootsuite Platform Certification",
+      issuer: "Hootsuite",
+      date: "Nov 2023",
+      credentialId: "87388457",
+      icon: "/images/hootsuite.svg",
+      showCredential: true
+    },
+    {
+      title: '"Make It Happen" Award',
+      issuer: "University of Florida Innovation Academy",
+      date: "Jun 2022",
+      icon: "/images/CYM.jpg"
+    },
+    {
+      title: "Microsoft PowerPoint 2013",
+      issuer: "Microsoft",
+      date: "Apr 2020",
+      icon: "/images/microsoft.svg"
+    },
+    {
+      title: "Microsoft Word 2013 Certification",
+      issuer: "Microsoft",
+      date: "Apr 2020",
+      icon: "/images/microsoft.svg"
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       <ParticleBackground />
@@ -825,132 +868,71 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications */}
-      <section id="certifications" className="py-32 bg-gradient-to-b from-white to-pink-50">
-        <div className="container max-w-6xl mx-auto px-4">
-          <FadeInSection className="mb-16 text-center">
-            <h2 className="text-5xl font-bold mb-6">Certifications & Education</h2>
-            <div className="w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Continuous learning is at the core of my professional development. Here are some of my key qualifications
-              and certifications.
+      <section className="py-20 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <FadeInSection>
+            <h2 className="text-4xl font-bold text-center mb-4">Certifications & Education</h2>
+            <p className="text-gray-600 text-center mb-12">
+              Continuous learning is at the core of my professional development.
+              Here are some of my key qualifications and certifications.
             </p>
           </FadeInSection>
 
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {/* Education */}
-            <FadeInSection delay={0.1}>
-              <motion.div whileHover={{ y: -10, scale: 1.02 }} className="h-full">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full">
-                  <CardHeader className="space-y-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-2xl">Combined Degree Program</CardTitle>
-                      <BookOpen className="h-6 w-6 text-white/80" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certifications.map((cert, index) => (
+              <FadeInSection key={cert.title} delay={index * 0.1}>
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardHeader className="flex flex-row items-center gap-4">
+                    <div className="w-12 h-12 relative">
+                      <Image
+                        src={cert.icon}
+                        alt={cert.issuer}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
-                    <CardDescription className="text-white/80 text-base">University of Florida</CardDescription>
+                    <div>
+                      <CardTitle className="text-lg">{cert.title}</CardTitle>
+                      <CardDescription>{cert.issuer}</CardDescription>
+                    </div>
                   </CardHeader>
-                  <CardContent className="space-y-4 pt-6">
-                    <div className="flex items-center gap-2 text-base">
-                      <Clock className="h-5 w-5 text-pink-500" />
-                      <span>2020 - Present</span>
+                  <CardContent>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Clock className="w-4 h-4" />
+                      <span>Issued {cert.date}</span>
                     </div>
-                    <p className="text-gray-600">
-                      Bachelor's and Master's in Public Relations with a focus on Strategic Communication and Digital
-                      Media.
-                    </p>
+                    {cert.skills && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {cert.skills.map(skill => (
+                          <span
+                            key={skill}
+                            className="px-2 py-1 bg-pink-100 text-pink-600 rounded-full text-xs"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {cert.credentialId && (
+                      <p className="mt-2 text-sm text-gray-500">
+                        Credential ID: {cert.credentialId}
+                      </p>
+                    )}
                   </CardContent>
-                  <CardFooter>
-                    <div className="flex flex-wrap gap-2">
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Strategic Communication
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Media Relations
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Research Methods
-                      </div>
-                    </div>
-                  </CardFooter>
+                  {cert.showCredential && (
+                    <CardFooter>
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-between hover:bg-pink-50"
+                      >
+                        Show credential
+                        <ArrowUpRight className="w-4 h-4" />
+                      </Button>
+                    </CardFooter>
+                  )}
                 </Card>
-              </motion.div>
-            </FadeInSection>
-
-            {/* Certification 1 */}
-            <FadeInSection delay={0.2}>
-              <motion.div whileHover={{ y: -10, scale: 1.02 }} className="h-full">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full">
-                  <CardHeader className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-2xl">Google Analytics Certification</CardTitle>
-                      <FloatingElement>
-                        <Award className="h-6 w-6 text-pink-500" />
-                      </FloatingElement>
-                    </div>
-                    <CardDescription className="text-base">Google</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-center gap-2 text-base">
-                      <Clock className="h-5 w-5 text-pink-500" />
-                      <span>2023</span>
-                    </div>
-                    <p className="text-gray-600">
-                      Advanced proficiency in web analytics, audience measurement, and data-driven decision making.
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <div className="flex flex-wrap gap-2">
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Data Analysis
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Audience Insights
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Reporting
-                      </div>
-                    </div>
-                  </CardFooter>
-                </Card>
-              </motion.div>
-            </FadeInSection>
-
-            {/* Certification 2 */}
-            <FadeInSection delay={0.3}>
-              <motion.div whileHover={{ y: -10, scale: 1.02 }} className="h-full">
-                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl h-full">
-                  <CardHeader className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-2xl">HubSpot Content Marketing</CardTitle>
-                      <FloatingElement>
-                        <Award className="h-6 w-6 text-pink-500" />
-                      </FloatingElement>
-                    </div>
-                    <CardDescription className="text-base">HubSpot Academy</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-center gap-2 text-base">
-                      <Clock className="h-5 w-5 text-pink-500" />
-                      <span>2022</span>
-                    </div>
-                    <p className="text-gray-600">
-                      Specialized training in content strategy, storytelling, and creating effective content marketing
-                      campaigns.
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <div className="flex flex-wrap gap-2">
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Content Strategy
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">
-                        Storytelling
-                      </div>
-                      <div className="rounded-full bg-pink-100 px-3 py-1 text-sm font-medium text-pink-600">SEO</div>
-                    </div>
-                  </CardFooter>
-                </Card>
-              </motion.div>
-            </FadeInSection>
+              </FadeInSection>
+            ))}
           </div>
         </div>
       </section>
