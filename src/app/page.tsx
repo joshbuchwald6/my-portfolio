@@ -341,7 +341,7 @@ export default function Portfolio() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight">Sara Beer</h1>
+              <h1 className="whitespace-nowrap text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight">Sara Beer</h1>
             </motion.div>
 
             <motion.p
@@ -357,42 +357,55 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md mx-auto justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto"
             >
-              <div className="w-full sm:w-[280px]">
-                <GlowingButton className="w-full" onClick={(e) => {
-                  e.preventDefault()
-                  const target = document.querySelector('#contact')
-                  if (target) {
-                    const offset = 100
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
-                    const start = window.pageYOffset
-                    const startTime = performance.now()
-                    const duration = 1500
-                    const easeInOutCubic = (t) => 
-                      t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                    const animateScroll = (currentTime) => {
-                      const timeElapsed = currentTime - startTime
-                      const progress = Math.min(timeElapsed / duration, 1)
-                      const easedProgress = easeInOutCubic(progress)
-                      const distance = targetPosition - start
-                      window.scrollTo(0, start + distance * easedProgress)
-                      if (progress < 1) {
-                        requestAnimationFrame(animateScroll)
+              <div className="w-full sm:w-auto">
+                <GlowingButton
+                  className="w-full sm:w-auto min-w-[180px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03]"
+                  onClick={e => {
+                    e.preventDefault()
+                    const target = document.querySelector('#contact')
+                    if (target) {
+                      const offset = 100
+                      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
+                      const start = window.pageYOffset
+                      const startTime = performance.now()
+                      const duration = 1500
+                      const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                      const animateScroll = currentTime => {
+                        const timeElapsed = currentTime - startTime
+                        const progress = Math.min(timeElapsed / duration, 1)
+                        const easedProgress = easeInOutCubic(progress)
+                        const distance = targetPosition - start
+                        window.scrollTo(0, start + distance * easedProgress)
+                        if (progress < 1) {
+                          requestAnimationFrame(animateScroll)
+                        }
                       }
+                      requestAnimationFrame(animateScroll)
                     }
-                    requestAnimationFrame(animateScroll)
-                  }
-                }}>Get In Touch</GlowingButton>
+                  }}
+                >
+                  Get In Touch
+                </GlowingButton>
               </div>
-
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-[280px]">
-                <Link href="/pdfs/sararesume.pdf" target="_blank">
-                  <Button variant="outline" size="lg" className="w-full border-2 border-gray-300">
-                    View Resume
-                  </Button>
-                </Link>
-              </motion.div>
+              <div className="w-full sm:w-auto">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link href="/pdfs/sararesume.pdf" target="_blank" tabIndex={0}>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full sm:w-auto min-w-[180px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] hover:bg-gray-100"
+                    >
+                      View Resume
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
