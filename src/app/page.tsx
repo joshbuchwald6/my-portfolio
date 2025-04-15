@@ -182,8 +182,31 @@ const NavItem = ({ href, children }: { href: string, children: React.ReactNode }
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
             window.scrollTo({
               top: targetPosition,
-              behavior: 'smooth'
+              behavior: 'smooth',
             })
+            // Add a more natural easing with JavaScript
+            const start = window.pageYOffset
+            const startTime = performance.now()
+            const duration = 1500 // Increased duration to 1.5 seconds
+            
+            const easeInOutCubic = (t: number) => 
+              t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+
+            const animateScroll = (currentTime: number) => {
+              const timeElapsed = currentTime - startTime
+              const progress = Math.min(timeElapsed / duration, 1)
+              
+              const easedProgress = easeInOutCubic(progress)
+              const distance = targetPosition - start
+              
+              window.scrollTo(0, start + distance * easedProgress)
+              
+              if (progress < 1) {
+                requestAnimationFrame(animateScroll)
+              }
+            }
+            
+            requestAnimationFrame(animateScroll)
           }
         }}
       >
@@ -447,13 +470,14 @@ export default function Portfolio() {
 
               <div className="pt-4">
                 <motion.div className="inline-block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-pink-500 to-purple-500 text-white border-0 hover:text-white"
+                  <Link 
+                    href="https://www.linkedin.com/in/sara-beer/"
+                    target="_blank"
+                    className="inline-flex items-center px-6 py-3 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-200"
                   >
                     Learn More
                     <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </Link>
                 </motion.div>
               </div>
             </FadeInSection>
@@ -779,7 +803,7 @@ export default function Portfolio() {
 
             <FadeInSection delay={0.4}>
               <motion.a
-                href="https://www.linkedin.com/in/sara-beer"
+                href="https://www.linkedin.com/in/sara-beer/"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
