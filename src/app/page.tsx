@@ -371,7 +371,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto sm:mx-0 px-4"
+              className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none mx-auto px-4"
             >
               <div className="w-full">
                 <GlowingButton className="w-full" onClick={(e) => {
@@ -419,7 +419,7 @@ export default function Portfolio() {
         </div>
 
         <motion.div
-          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12 cursor-pointer"
+          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12 cursor-pointer flex justify-center w-full"
           animate={{ 
             y: [0, 15, 0],
             opacity: [0.6, 1, 0.6]
