@@ -511,356 +511,219 @@ export default function Portfolio() {
             </p>
           </FadeInSection>
 
-          <Tabs defaultValue="all" className="w-full">
-            <div className="flex justify-center mb-12">
-              <TabsList className="bg-pink-100/50 p-1 rounded-full">
-                <TabsTrigger
-                  value="all"
-                  className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-pink-600 data-[state=active]:shadow-md"
-                >
-                  All Projects
-                </TabsTrigger>
-                <TabsTrigger
-                  value="campaigns"
-                  className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-pink-600 data-[state=active]:shadow-md"
-                >
-                  Campaigns
-                </TabsTrigger>
-                <TabsTrigger
-                  value="strategy"
-                  className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-pink-600 data-[state=active]:shadow-md"
-                >
-                  Strategy
-                </TabsTrigger>
-                <TabsTrigger
-                  value="content"
-                  className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-pink-600 data-[state=active]:shadow-md"
-                >
-                  Content
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="all" className="mt-8">
-              <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                {/* Project 1 */}
-                <FadeInSection delay={0.1}>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Brand Revitalization Campaign"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Brand Revitalization Campaign
-                        </CardTitle>
-                        <CardDescription className="text-base">Digital Strategy • Content Creation</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Led a comprehensive brand refresh for a local non-profit, resulting in 40% increased
-                          engagement and 25% growth in donations.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Project 1 */}
+            <FadeInSection delay={0.1}>
+              <motion.div whileHover={{ y: -10 }} className="group">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+                      <Image
+                        src="/images/CYM.jpg"
+                        alt="Brand Revitalization Campaign"
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                      Brand Revitalization Campaign
+                    </CardTitle>
+                    <CardDescription className="text-base">Digital Strategy • Content Creation</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      Led a comprehensive brand refresh for a local non-profit, resulting in 40% increased
+                      engagement and 25% growth in donations.
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="/pdfs/cym-case-study.pdf" target="_blank">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+                      >
+                        View Case Study
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                          }}
                         >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
-
-                {/* Project 2 */}
-                <FadeInSection delay={0.2}>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Social Media Strategy"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
+                          <ArrowUpRight className="h-4 w-4" />
                         </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Social Media Strategy
-                        </CardTitle>
-                        <CardDescription className="text-base">Content Planning • Analytics</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Developed and implemented a cross-platform social media strategy that increased follower
-                          growth by 65% in three months.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
-                        >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </FadeInSection>
 
-                {/* Project 3 */}
-                <FadeInSection delay={0.3}>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Crisis Communication Plan"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Crisis Communication Plan
-                        </CardTitle>
-                        <CardDescription className="text-base">Strategy • Media Relations</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Created a comprehensive crisis communication framework for a retail client, including response
-                          protocols and media training.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+            {/* Project 2 */}
+            <FadeInSection delay={0.2}>
+              <motion.div whileHover={{ y: -10 }} className="group">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+                      <Image
+                        src="/images/ebay.svg"
+                        alt="eBay Marketing Campaign"
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                      eBay Marketing Campaign
+                    </CardTitle>
+                    <CardDescription className="text-base">Content Planning • Analytics</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      Developed and implemented a cross-platform marketing strategy that increased sales
+                      by 65% in three months.
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="/pdfs/ebay-case-study.pdf" target="_blank">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+                      >
+                        View Case Study
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                          }}
                         >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
-              </div>
-            </TabsContent>
+                          <ArrowUpRight className="h-4 w-4" />
+                        </motion.div>
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </FadeInSection>
 
-            {/* Other tab contents would be similar */}
-            <TabsContent value="campaigns" className="mt-8">
-              <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                <FadeInSection>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Awareness Campaign"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Public Awareness Campaign
-                        </CardTitle>
-                        <CardDescription className="text-base">Campaign Strategy • Event Planning</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Designed and executed a multi-channel awareness campaign that reached over 50,000 people and
-                          generated significant media coverage.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+            {/* Project 3 */}
+            <FadeInSection delay={0.3}>
+              <motion.div whileHover={{ y: -10 }} className="group">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+                      <Image
+                        src="/images/Nikon_Logo.svg"
+                        alt="Nikon Product Launch"
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                      Nikon Product Launch
+                    </CardTitle>
+                    <CardDescription className="text-base">Strategy • Media Relations</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      Created a comprehensive product launch campaign for Nikon's latest DSLR camera,
+                      achieving 150% of sales targets.
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="/pdfs/nikon-case-study.pdf" target="_blank">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+                      >
+                        View Case Study
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                          }}
                         >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
-              </div>
-            </TabsContent>
+                          <ArrowUpRight className="h-4 w-4" />
+                        </motion.div>
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </FadeInSection>
 
-            <TabsContent value="strategy" className="mt-8">
-              <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                <FadeInSection>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Communication Strategy"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Integrated Communication Strategy
-                        </CardTitle>
-                        <CardDescription className="text-base">Research • Strategic Planning</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Developed a comprehensive communication strategy for a tech startup, aligning messaging across
-                          all touchpoints.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+            {/* Project 4 */}
+            <FadeInSection delay={0.4}>
+              <motion.div whileHover={{ y: -10 }} className="group">
+                <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+                      <Image
+                        src="/images/alphapr.png"
+                        alt="Alpha PR Campaign"
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
+                      Alpha PR Campaign
+                    </CardTitle>
+                    <CardDescription className="text-base">Brand Strategy • Digital Marketing</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      Spearheaded a comprehensive PR campaign for Alpha, resulting in
+                      300% increase in brand visibility and successful market positioning.
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="/pdfs/alphapr.pdf" target="_blank">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
+                      >
+                        View Case Study
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                          }}
                         >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="content" className="mt-8">
-              <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                <FadeInSection>
-                  <motion.div whileHover={{ y: -10 }} className="group">
-                    <Card className="overflow-hidden border-0 shadow-xl rounded-3xl">
-                      <div className="aspect-video w-full overflow-hidden">
-                        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                          <Image
-                            src="/placeholder.svg?height=400&width=600"
-                            alt="Content Strategy"
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover"
-                          />
+                          <ArrowUpRight className="h-4 w-4" />
                         </motion.div>
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-2xl group-hover:text-pink-500 transition-colors">
-                          Content Marketing Strategy
-                        </CardTitle>
-                        <CardDescription className="text-base">Content Creation • Distribution</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600">
-                          Created and implemented a content marketing strategy that increased organic traffic by 75% and
-                          lead generation by 45%.
-                        </p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-1 text-pink-500 hover:text-pink-600 hover:bg-pink-50 group"
-                        >
-                          View Case Study
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <ArrowUpRight className="h-4 w-4" />
-                          </motion.div>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                </FadeInSection>
-              </div>
-            </TabsContent>
-          </Tabs>
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </FadeInSection>
+          </div>
         </div>
       </section>
 
