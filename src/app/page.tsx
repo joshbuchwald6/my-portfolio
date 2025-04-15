@@ -332,7 +332,7 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center py-16 md:py-32 max-sm:pt-24">
+      <section id="home" className="relative min-h-screen flex items-center justify-center py-16 md:py-32">
         <div className="container max-w-6xl mx-auto px-2">
           <div className="flex flex-col items-center text-center space-y-8 md:space-y-12">
             <motion.div
@@ -341,63 +341,72 @@ export default function Portfolio() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <h1 className="whitespace-nowrap text-4xl font-extrabold tracking-tight leading-tight max-sm:text-4xl max-sm:font-extrabold max-sm:tracking-tight max-sm:leading-tight">Sara Beer</h1>
+              <h1 className="whitespace-nowrap text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight">Sara Beer</h1>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="max-sm:text-sm max-sm:text-zinc-600 max-sm:max-w-[90%] max-sm:mx-auto max-sm:mt-3 text-base sm:text-lg text-gray-600 max-w-4xl px-0"
+              className="whitespace-nowrap text-base sm:text-lg text-gray-600 max-w-4xl px-0"
             >
               Combined Degree Public Relations Student at the University of Florida
             </motion.p>
 
-            <div className="flex flex-col items-center gap-3 w-full mt-6 max-sm:mb-8">
-              <GlowingButton
-                className="min-w-[200px] px-6 py-3 text-sm font-semibold text-center rounded-lg relative z-10 max-sm:shadow-[0_0_20px_rgba(236,72,153,0.25)] max-sm:w-full max-sm:box-border"
-                onClick={e => {
-                  e.preventDefault()
-                  const target = document.querySelector('#contact')
-                  if (target) {
-                    const offset = 100
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
-                    const start = window.pageYOffset
-                    const startTime = performance.now()
-                    const duration = 1500
-                    const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                    const animateScroll = currentTime => {
-                      const timeElapsed = currentTime - startTime
-                      const progress = Math.min(timeElapsed / duration, 1)
-                      const easedProgress = easeInOutCubic(progress)
-                      const distance = targetPosition - start
-                      window.scrollTo(0, start + distance * easedProgress)
-                      if (progress < 1) {
-                        requestAnimationFrame(animateScroll)
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto"
+            >
+              <div className="w-full sm:w-auto">
+                <GlowingButton
+                  className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03]"
+                  onClick={e => {
+                    e.preventDefault()
+                    const target = document.querySelector('#contact')
+                    if (target) {
+                      const offset = 100
+                      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset
+                      const start = window.pageYOffset
+                      const startTime = performance.now()
+                      const duration = 1500
+                      const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                      const animateScroll = currentTime => {
+                        const timeElapsed = currentTime - startTime
+                        const progress = Math.min(timeElapsed / duration, 1)
+                        const easedProgress = easeInOutCubic(progress)
+                        const distance = targetPosition - start
+                        window.scrollTo(0, start + distance * easedProgress)
+                        if (progress < 1) {
+                          requestAnimationFrame(animateScroll)
+                        }
                       }
+                      requestAnimationFrame(animateScroll)
                     }
-                    requestAnimationFrame(animateScroll)
-                  }
-                }}
-              >
-                Get In Touch
-              </GlowingButton>
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full"
-              >
-                <Link href="/pdfs/sararesume.pdf" target="_blank" tabIndex={0}>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="min-w-[200px] px-6 py-3 text-sm font-semibold text-center rounded-lg z-20 max-sm:w-full max-sm:box-border"
-                  >
-                    View Resume
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
+                  }}
+                >
+                  Get In Touch
+                </GlowingButton>
+              </div>
+              <div className="w-full sm:w-auto">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link href="/pdfs/sararesume.pdf" target="_blank" tabIndex={0}>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full sm:w-auto w-[200px] text-center font-semibold text-base tracking-normal py-3 px-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 transition-transform hover:scale-[1.03] hover:bg-gray-100"
+                    >
+                      View Resume
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
