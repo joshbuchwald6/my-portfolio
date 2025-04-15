@@ -297,34 +297,34 @@ export default function Portfolio() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center"
           >
-            <nav className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-gray-100">
+            <nav className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-gray-100">
               <NavItem href="#home">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
                   <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
-                Home
+                <span className="hidden sm:inline">Home</span>
               </NavItem>
               <NavItem href="#about">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
                   <circle cx="12" cy="8" r="5" />
                   <path d="M20 21a8 8 0 1 0-16 0" />
                 </svg>
-                About
+                <span className="hidden sm:inline">About</span>
               </NavItem>
               <NavItem href="#work">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
                   <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                 </svg>
-                Work
+                <span className="hidden sm:inline">Work</span>
               </NavItem>
               <NavItem href="#contact">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                Contact
+                <span className="hidden sm:inline">Contact</span>
               </NavItem>
             </nav>
           </motion.div>
@@ -417,7 +417,7 @@ export default function Portfolio() {
         </div>
 
         <motion.div
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         >
@@ -431,7 +431,7 @@ export default function Portfolio() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-8 h-8 text-gray-400"
+            className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400"
           >
             <path d="M12 5v14" />
             <path d="m19 12-7 7-7-7" />
@@ -442,14 +442,14 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="py-16 md:py-32 bg-gradient-to-b from-white to-pink-50">
         <div className="container max-w-6xl mx-auto px-4">
-          <FadeInSection className="mb-12 md:mb-16 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">About Me</h2>
-            <div className="w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+          <FadeInSection className="mb-8 sm:mb-12 md:mb-16 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">About Me</h2>
+            <div className="w-16 sm:w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
           </FadeInSection>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeInSection delay={0.2}>
-              <div className="relative max-w-md mx-auto md:max-w-none">
+              <div className="relative max-w-sm sm:max-w-md mx-auto md:max-w-none">
                 <RotatingElement className="relative z-10">
                   <div className="rounded-3xl overflow-hidden border-8 border-white shadow-xl">
                     <Image
@@ -463,21 +463,21 @@ export default function Portfolio() {
                 </RotatingElement>
 
                 <motion.div
-                  className="absolute -bottom-8 -right-8 bg-white p-4 rounded-2xl shadow-lg z-20"
+                  className="absolute -bottom-4 sm:-bottom-8 -right-4 sm:-right-8 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg z-20"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-full p-3">
-                      <Award className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-full p-2 sm:p-3">
+                      <Award className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-bold">UF Combined Degree</p>
-                      <p className="text-sm text-gray-500">PR Excellence</p>
+                      <p className="text-sm sm:text-base font-bold">UF Combined Degree</p>
+                      <p className="text-xs sm:text-sm text-gray-500">PR Excellence</p>
                     </div>
                   </div>
                 </motion.div>
 
-                <div className="absolute -z-10 w-full h-full bg-gradient-to-r from-pink-300 to-purple-300 rounded-3xl -bottom-6 -right-6"></div>
+                <div className="absolute -z-10 w-full h-full bg-gradient-to-r from-pink-300 to-purple-300 rounded-3xl -bottom-4 sm:-bottom-6 -right-4 sm:-right-6"></div>
               </div>
             </FadeInSection>
 
