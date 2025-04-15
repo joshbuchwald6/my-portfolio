@@ -332,18 +332,18 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center py-32">
+      <section id="home" className="relative min-h-screen flex items-center justify-center py-16 md:py-32">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className="flex flex-col items-center text-center space-y-12">
+          <div className="flex flex-col items-center text-center space-y-8 md:space-y-12">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <h1 className="text-8xl md:text-9xl font-black tracking-tight">Sara Beer</h1>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight">Sara Beer</h1>
               <motion.div
-                className="absolute -top-8 -right-8 text-pink-500"
+                className="absolute -top-4 sm:-top-6 md:-top-8 -right-4 sm:-right-6 md:-right-8 text-pink-500"
                 animate={{
                   rotate: [0, 20, 0, -20, 0],
                   scale: [1, 1.2, 1],
@@ -354,7 +354,7 @@ export default function Portfolio() {
                   ease: "easeInOut",
                 }}
               >
-                <Sparkles className="w-12 h-12" />
+                <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
               </motion.div>
             </motion.div>
 
@@ -362,7 +362,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xl text-gray-600 max-w-2xl"
+              className="text-lg sm:text-xl text-gray-600 max-w-2xl px-4"
             >
               Combined Degree Public Relations Student at the University of Florida
             </motion.p>
@@ -371,9 +371,9 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-6"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4"
             >
-              <GlowingButton onClick={(e) => {
+              <GlowingButton className="w-full sm:w-auto" onClick={(e) => {
                 e.preventDefault()
                 const target = document.querySelector('#contact')
                 if (target) {
@@ -405,9 +405,9 @@ export default function Portfolio() {
                 }
               }}>Get In Touch</GlowingButton>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                 <Link href="/pdfs/sararesume.pdf" target="_blank">
-                  <Button variant="outline" size="lg" className="border-2 border-gray-300">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-gray-300">
                     View Resume
                   </Button>
                 </Link>
@@ -440,16 +440,16 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 bg-gradient-to-b from-white to-pink-50">
+      <section id="about" className="py-16 md:py-32 bg-gradient-to-b from-white to-pink-50">
         <div className="container max-w-6xl mx-auto px-4">
-          <FadeInSection className="mb-16 text-center">
-            <h2 className="text-5xl font-bold mb-6">About Me</h2>
+          <FadeInSection className="mb-12 md:mb-16 text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">About Me</h2>
             <div className="w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeInSection delay={0.2}>
-              <div className="relative">
+              <div className="relative max-w-md mx-auto md:max-w-none">
                 <RotatingElement className="relative z-10">
                   <div className="rounded-3xl overflow-hidden border-8 border-white shadow-xl">
                     <Image
@@ -516,18 +516,18 @@ export default function Portfolio() {
       </section>
 
       {/* Work Experience */}
-      <section id="work" className="py-32">
+      <section id="work" className="py-16 md:py-32">
         <div className="container max-w-6xl mx-auto px-4">
-          <FadeInSection className="mb-16 text-center">
-            <h2 className="text-5xl font-bold mb-6">My Work</h2>
+          <FadeInSection className="mb-12 md:mb-16 text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">My Work</h2>
             <div className="w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               A showcase of my strategic communication projects, campaigns, and PR initiatives that demonstrate my
               ability to create impact.
             </p>
           </FadeInSection>
 
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:gap-8 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {/* Project 1 */}
             <FadeInSection delay={0.1}>
               <motion.div whileHover={{ y: -10 }} className="group h-full">
@@ -792,17 +792,17 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 bg-white">
+      <section id="contact" className="py-16 md:py-32 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
-          <FadeInSection className="mb-16 text-center">
-            <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
+          <FadeInSection className="mb-12 md:mb-16 text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Get In Touch</h2>
             <div className="w-24 h-2 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl mx-auto">
             <FadeInSection delay={0.2}>
               <motion.a
                 href="mailto:sarajbeer@gmail.com"
