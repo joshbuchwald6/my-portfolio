@@ -171,7 +171,14 @@ const ParticleBackground = () => {
 const NavItem = ({ href, children }) => {
   return (
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-      <Link href={href} className="px-4 py-2 text-gray-700 hover:text-pink-500 transition-colors">
+      <Link 
+        href={href} 
+        className="px-4 py-2 text-gray-700 hover:text-pink-500 transition-colors"
+        onClick={(e) => {
+          e.preventDefault()
+          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+        }}
+      >
         {children}
       </Link>
     </motion.div>
@@ -262,18 +269,7 @@ export default function Portfolio() {
             <nav className="flex gap-8 px-8 py-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg">
               <NavItem href="#home">
                 <span className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                     <polyline points="9 22 9 12 15 12 15 22" />
                   </svg>
@@ -282,18 +278,7 @@ export default function Portfolio() {
               </NavItem>
               <NavItem href="#about">
                 <span className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 16v-4" />
                     <path d="M12 8h.01" />
@@ -303,18 +288,7 @@ export default function Portfolio() {
               </NavItem>
               <NavItem href="#work">
                 <span className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                   </svg>
@@ -323,18 +297,7 @@ export default function Portfolio() {
               </NavItem>
               <NavItem href="#contact">
                 <span className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     <rect width="20" height="16" x="2" y="4" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
@@ -776,7 +739,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32">
+      <section id="contact" className="py-32 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
           <FadeInSection className="mb-16 text-center">
             <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
@@ -786,282 +749,68 @@ export default function Portfolio() {
             </p>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <FadeInSection delay={0.2}>
-              <div className="space-y-12">
-                <div className="space-y-6">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-start gap-6 p-6 rounded-3xl bg-white shadow-lg"
-                  >
-                    <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
-                      <Mail className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-1">Email</h3>
-                      <p className="text-gray-600">sara.beer@example.com</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-start gap-6 p-6 rounded-3xl bg-white shadow-lg"
-                  >
-                    <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
-                      <Phone className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-1">Phone</h3>
-                      <p className="text-gray-600">(352) 555-0123</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-start gap-6 p-6 rounded-3xl bg-white shadow-lg"
-                  >
-                    <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
-                      <MapPin className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-1">Location</h3>
-                      <p className="text-gray-600">Gainesville, Florida</p>
-                    </div>
-                  </motion.div>
+              <motion.a
+                href="mailto:sara.beer@example.com"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
+              >
+                <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
+                  <Mail className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold">Email</h3>
+                <p className="text-gray-600 text-center">sara.beer@example.com</p>
+              </motion.a>
+            </FadeInSection>
 
-                <div className="flex gap-4">
-                  <motion.a
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    whileTap={{ scale: 0.9 }}
-                    href="#"
-                    className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-3 text-white shadow-lg"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect width="4" height="12" x="2" y="9" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                    <span className="sr-only">LinkedIn</span>
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ scale: 1.2, rotate: -10 }}
-                    whileTap={{ scale: 0.9 }}
-                    href="#"
-                    className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-3 text-white shadow-lg"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                    </svg>
-                    <span className="sr-only">Twitter</span>
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    whileTap={{ scale: 0.9 }}
-                    href="#"
-                    className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-3 text-white shadow-lg"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                    </svg>
-                    <span className="sr-only">Instagram</span>
-                  </motion.a>
+            <FadeInSection delay={0.3}>
+              <motion.a
+                href="tel:+13525550123"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
+              >
+                <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
+                  <Phone className="h-6 w-6" />
                 </div>
-              </div>
+                <h3 className="text-xl font-bold">Phone</h3>
+                <p className="text-gray-600 text-center">(352) 555-0123</p>
+              </motion.a>
             </FadeInSection>
 
             <FadeInSection delay={0.4}>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-white p-8 rounded-3xl shadow-xl"
+              <motion.a
+                href="https://www.linkedin.com/in/sara-beer"
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-4 p-6 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="space-y-6">
-                  <div className="space-y-4">
-                    <div className="relative">
-                      <input
-                        id="name"
-                        placeholder="Your name"
-                        className="w-full rounded-xl border-2 border-pink-100 bg-white px-4 py-3 text-base focus:border-pink-500 focus:outline-none"
-                      />
-                      <motion.div
-                        className="absolute right-3 top-3 text-pink-500"
-                        animate={{
-                          rotate: [0, 10, 0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 5,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-6 h-6"
-                        >
-                          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
-                      </motion.div>
-                    </div>
-
-                    <div className="relative">
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Your email"
-                        className="w-full rounded-xl border-2 border-pink-100 bg-white px-4 py-3 text-base focus:border-pink-500 focus:outline-none"
-                      />
-                      <motion.div
-                        className="absolute right-3 top-3 text-pink-500"
-                        animate={{
-                          rotate: [0, 10, 0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 5,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "easeInOut",
-                          delay: 0.5,
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-6 h-6"
-                        >
-                          <rect width="20" height="16" x="2" y="4" rx="2" />
-                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                        </svg>
-                      </motion.div>
-                    </div>
-
-                    <div className="relative">
-                      <textarea
-                        id="message"
-                        placeholder="Your message"
-                        className="min-h-[150px] w-full rounded-xl border-2 border-pink-100 bg-white px-4 py-3 text-base focus:border-pink-500 focus:outline-none"
-                      />
-                      <motion.div
-                        className="absolute right-3 top-3 text-pink-500"
-                        animate={{
-                          rotate: [0, 10, 0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 5,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "easeInOut",
-                          delay: 1,
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-6 h-6"
-                        >
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg>
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  <GlowingButton className="w-full">
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
-                  </GlowingButton>
+                <div className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 p-4 text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
                 </div>
-              </motion.div>
+                <h3 className="text-xl font-bold">LinkedIn</h3>
+                <p className="text-gray-600 text-center">Connect with me</p>
+              </motion.a>
             </FadeInSection>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+      <footer className="py-8 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center md:text-left"
-            >
-              <p className="text-white/80">© 2023 Sara Beer. All rights reserved.</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="flex gap-6 text-sm text-white/80"
-            >
-              <Link href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center"
+          >
+            <p className="text-gray-600">© 2025 Sara Beer. All rights reserved.</p>
+          </motion.div>
         </div>
       </footer>
     </div>
